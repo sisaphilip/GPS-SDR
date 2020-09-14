@@ -1,0 +1,57 @@
+
+LNA  -    A  hi-Q  tuned input circuit and dual-gate MOSFET provide for a sufficiently low noise figure for this application.
+                       The galactic background is very noisy at low VHF , therefore it was felt the use of a GaAsFET device input stage  would
+                       bring no practical advantages.  The MOSFET output is impedance matched via a small balun into a 3-stage filter to
+                       improve front-end selectivity to the second stage MMIC booster amp.  The overall B/width is ~ 0.5MHz.
+The field box also contains one each single stage MMIC booster amp. to compensate for cable losses .
+                      
+                       LNA schematic                            LNA pic(less shield)                     LNA pic                    
+RF input & phase switch module -
+
+Each LNA feeds into the respective RF inputs of this module.  LNA d.c. power (10V) is fed into the coax.cables (bias-T).
+A further stage of RF amplification is added, which incorporates individual gain controls. This is used to set the gain of each
+channel to result in the desired detector output level, in this case here usually ~ 100mVdc.
+The output of the two RF stages are combined in the phase switch stage. In normal operation the upper transformer is doing
+the in-phase / anti- phase switching. The squ.wave drive signal is delivered from the back-end , but each individual LNA can
+be selected (full power) for adjustments & testing via the 3-pos. selector switch.  The bottom channel (west) has identical
+components fitted to preserve symmetry and allow operation via selector switch, but doesn't get phase switched.
+Outputs from both sections get combined via the 33 Ohm resistors to the common 48MHz output to the mixer stage.
+
+RF input & phase switch module schematic
+Mixer / Oscillator & I.F.filter module -
+
+A  2-stage filter precedes the BF988 converter stage, with a 26MHz trap circuit rejecting possible image signals from the
+AM CB band.  The oscillator operates on 37.3MHz (nominal) to convert the 48MHz signals to the 10.7MHz I.F. output.
+The oscillator can also be varicap tuned +/- 400kHz , although this results in the band edges exceeding the LNA B/Width.
+The 10.7MHz I.F. is L/C  filtered , then passes thru a wide ceramic filter and I.F. pre-amp (BF199).
+The final 10.7MHz filter has 3 different bandwidths selectable, 280kHz, 55kHz and 15kHz.   There is probably no great need
+for this refinement , but it was interesting to compare operation at each different B/width.  It is worth noting that even when
+using 15kHz , one could still get quite acceptable recordings !
+
+Mixer/Osc. & I.F.filter module schematic
+Main  I.F.amp / detector / audio monitor & power supply module -
+
+This module contains the 10.7MHz I.F.gain block with detector stage.  It was implemented with discrete components, but
+could have been done with a single high gain IC stage . All transistors in the amp. are BF199.
+The audio monitor takes its signal from an aux. output from the back-end module.
+The power supply is straightforward, all voltages are derived from the 18 + 18V transformer secondary.
+Most d.c. power is supplied on the +10V rail ,which is needed by two of the modules and the LNAs.
+The back-end op-amps require  + / - 12V supplies , there is a separate +12V rail for the audio monitor, CMOS logic and
+some control parts in the modules.  The +4.5V rail is used fir the RF amp. gain controls.
+
+Main I.F.amp / Det. / audio mon. & PSU
+
+Back - end -
+
+Signal voltage from the detector stage is at first buffered and passed to an a.c.amplifier,and is also indicated on a
+panel meter to show 0 - 300mV detector volts.  The O/put of the a.c.amp is fed to a small audio transformer ,its output
+feeds  in-phase & anti-phase voltages to the synchronous detector (4066). This CMOS switch is driven by the same
+square wave driver which operates the phase switch in the RF section.  The complete phase switch driver is shown at
+                      the lower left section in the schematic  (4093/4027/741 ICs)
+The phase detector output is then combined in a differential amp (TL081) which also has a detector balance control.
+This balance needs to be set and remain reliably stable, therefore the control is a 10-turn prec.pot.
+Another op-amp is used to indicate the amplified phase balance. This has to be an analog meter due to the rapidly
+fluctuating nature of the noise.
+The combined output is then integrated and d.c. amplified before sent out to an ADC, in this case SkyPipe.
+Typ.settings here are :  detector stage 100mV,  a.c.gain  x20, d.c.gain x 100..
+The detector level has to be set when there is min. galactic background noise, because when the galactic centre passes                              through the "beam" the level will increase to ~ 250...300mV ,even with a minimalistic antenna like this one !!

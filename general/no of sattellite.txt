@@ -1,0 +1,18 @@
+There are 30 GPS satellites -- called NAVSTARs -- in place and the oldest one was launched in 1989. These are just the ones in operation now -- another 22 have been launched since the program started in 1978, but are no longer working.
+The design of the satellites has remained essentially the same over the years; the differences have just been in their operations.
+The first 11 satellites, known as Group I and designed by Rockwell International, were launched into orbit between 1978 and 1985 from Vandenburg Air Force Base in California. Each of these satellites contained one Cesium and two Rubidium atomic clocks and could provide navigation and standard positioning information. Continuous contact with the Ground Control Segment (CS) was required for their operation. They were designed to last five years, but most lasted much longer.
+The next group of 9 satellites are called Group II and were also designed by Rockwell. These were the first to provide precision positioning information for military use and to be able to operate for 14 days without contact with the CS. Group II satellites contained four clocks two Cesium and two Rubidium and were launched between February 1989 and October 1990 from Cape Canaveral Air Force Station in Florida. They were designed to last 7.3 years and two currently remain in operation.
+The Group IIA satellites were next group to be designed by Rockwell and numbered 19. They are similar to the Group II satellites, except they have the ability to operate 180 days without contact with CS. These were launched from Cape Canaveral between November 1990 and November 1997. All but three of these satellites are still in operation.
+The most recent type, Group IIR, were designed by Lockheed Martin and each have three Rubidium clocks. They were designed to provide more accurate information through a combination of ranging techniques and communication between the satellites. They are also designed to last slightly longer (7.8 years) and to have improved independent controls. There are currently 12 such satellites in orbit the most recent launched in November 2004.
+The satellites are launched via a Delta II rocket designed by Boeing. These are expendable launch vehicles (ELVs), meaning they are intended for one use only. Each of these ELVs consists of the following:
+
+    Stage I which contains fuel and oxygen tanks to supply the main engine during its climb;
+
+    Solid rocket booster motors to provide additional thrust during the first two minutes of flight;
+
+    Stage II which contains the fuel and oxidizer tanks that supply the engine needed to insert the ELV into orbit and the brains of the ELV, including its guidance system;
+
+    Stage III that has a solid rocket motor to provide any needed velocity change.
+
+
+Read more: http://wiki.answers.com/Q/How_many_GPS_satellites_are_there_and_when_were_they_put_in_orbit#ixzz1nyNABDCW

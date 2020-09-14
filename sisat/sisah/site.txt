@@ -1,0 +1,2 @@
+ftp://cddis.gsfc.nasa.gov/pub/gps/data/daily
+http://www.acasper.org/2011/11/07/gps-signal-analysis/

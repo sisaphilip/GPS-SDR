@@ -1,0 +1,29 @@
+Crystal Oscillators are oscillators where a quartz crystal is used to provide the primary frequency element. The characteristics of the internal quartz crystal provide that the Crystal Oscillator can achieve a high degree of frequency stability and accuracy.
+
+A Crystal Oscillator is made up of an amplifier and feedback network that selects a portion of the amplifier output and returns it to the amplifier input. The oscillator circuit is dependent on two key conditions: First, the loop gain needs to be greater than losses around the oscillator loop, or equal to unity. Second, the loop phase shift must be equal to 0 or 360 degrees. Loop phase angle shifts determine the frequency at which the oscillator will operate. A change in net loop phase angle results in a change in output frequency of the oscillator circuit. In order to minimize the net phase shift, a quartz crystal is placed in the feedback loop. Because of the changes in impedance of the quartz crystal due to changes in applied frequency, all other components of the circuit should be considered constant reactance resulting in an adjustment of the quartz crystal frequency to a reactance that satisfies the loop phase characteristics.
+
+Selecting an Oscilent Crystal Oscillator:
+
+1. Operating Environment In selecting a Crystal Oscillator, first consideration should be made to the environment in which the device will operate. Careful consideration should be given to the size constraints applicable to the PCB, whether a through hole or SMT device is needed, and to the temperature environment in which the Crystal Oscillator will operate:
+
+a. Selecting a Package: The most common industry wide standard package for a Crystal Oscillator through hole device is a 4-pin dip half size (Oscilent 320 Series) The most common package for an surface mount device is the 5x7mm Ceramic 4 pad device (Oscilent 430 Series)
+
+b. Temperature Environment: Generally, the industry standard Operating Temperature ranges are 0-+70 degrees celsius (considered commercial temperature), and -40-+85 degree celsius (considered industrial temperature) These common ranges make up approximately 80% of all products available in the market. For common uses in military and automotive applications, some Crystal Oscillators can be designed for more extreme conditions. The higher the Operating Temperature specified, the higher the cost of the device.
+
+2. Electrical Parameters Generally, the Crystal Oscillator selected will have common characteristics that will be standard across industry participants. These characteristics include standards in available frequencies, drive currents, capacitance, pin outs, etc. However, key Electrical Parameters of the Crystal Oscillator must be selected by the consumer:
+
+a. Package: Discussed above
+
+b. Output Logic: By far, the most common Output Logic is CMOS/HTML. However, other Output Logics are available including PECL and LVDS.
+
+c. Frequency
+
+d. Voltage: The two most common Operating Voltage options are 3.3 Volt (considered low voltage) and 5.0 Volt (considered standard) Other less common Operating Voltages are available including voltages ranging from 1.8-3.0 Volts. Whenever possible the Crystal Oscillator should be specified in either 3.3 Volt, or 5.0 Volt to minimize costs and lead times of the device.
+
+e. Stability: The most standard Stability for a Crystal Oscillator is 50ppm. The Stability is most dependant on the Operating Temperature Range, and, hence, 50 ppm over 0-+70 degrees celsius in most common. 15-20 ppm is normally considered the tightest production spec available, but special accommodations are possible for tighter specs.
+
+f. Operating Temperature: Discussed above
+
+g. Pin One Option: Output Enable (Tristate) or No Connection
+
+Oscilent is a manufactuer of crystal oscillator and a supplier worldwide for various applications and markets. Oscilent offers standard products and have designers in-house for custom crystal oscillator devices.

@@ -1,0 +1,445 @@
+Electronics Forums
+	Home 	Register 	Search 	Tutorials 	Calculators 	Links 	
+Member Login: 				
+	
+
+Electronics Forums > Newsgroups > Electronics Newsgroups > Electronic Design > Multiplier VS. mixer
+
+Ads by Google
+Xilinx Obsolete Component
+Authorized Distributor. Factory Sealed From Manufacturer. In Stock!
+www.componentsdirect.com/Xilinx
+
+
+Reply 	
+Page 1 of 3 	1 	2	3 	> 	
+Thread Tools 	Display Modes
+Multiplier VS. mixer
+ 
+ 
+amoyou
+Guest
+Posts: n/a
+  	
+      09-21-2005, 10:10 AM
+I am just wondering that, multiplier and Mixer all have the abality to
+convert frequency, so what is the difference between them? and in the
+transiver and receiver, we use mixer to up-down transfer the frequency,
+why not multiplier???
+
+	
+ 
+Reply With Quote
+		
+ 
+	
+Ads by Google
+
+Heat Sink for IC Package
+ISO 9001, Favor Supply High Quality Precision Flip Chip, BGA, QFP.
+www.favor-p.com.tw
+	
+ 
+ 
+		
+ 
+Robert Lacoste
+Guest
+Posts: n/a
+  	
+      09-21-2005, 12:59 PM
+"amoyou" <(E-Mail Removed)> a écrit dans le message de news:
+(E-Mail Removed) om...
+>I am just wondering that, multiplier and Mixer all have the abality to
+> convert frequency, so what is the difference between them? and in the
+> transiver and receiver, we use mixer to up-down transfer the frequency,
+> why not multiplier???
+
+A multiplier calculates A(t)xB(t), A and B being analog signals
+
+A mixer is a device able to upconvert or downconvert a RF signal, thanks to
+a multiplication. But usual (diode-based) mixers calculate something like
+A(t) x sign(B(t)), and not A(t)xB(t).
+
+So a multiplier IS a mixer, but a mixer is often not an actual plain
+multiplier.
+
+Cheers,
+Robert
+
+
+	
+ 
+Reply With Quote
+		
+ 
+Tim Wescott
+Guest
+Posts: n/a
+  	
+      09-21-2005, 03:21 PM
+Robert Lacoste wrote:
+
+> "amoyou" <(E-Mail Removed)> a écrit dans le message de news:
+> (E-Mail Removed) om...
+>
+>>I am just wondering that, multiplier and Mixer all have the abality to
+>>convert frequency, so what is the difference between them? and in the
+>>transiver and receiver, we use mixer to up-down transfer the frequency,
+>>why not multiplier???
+>
+>
+> A multiplier calculates A(t)xB(t), A and B being analog signals
+>
+> A mixer is a device able to upconvert or downconvert a RF signal, thanks to
+> a multiplication. But usual (diode-based) mixers calculate something like
+> A(t) x sign(B(t)), and not A(t)xB(t).
+>
+> So a multiplier IS a mixer, but a mixer is often not an actual plain
+> multiplier.
+>
+-- and a mixer, because it isn't a plain multiplier, often outperforms a
+multiplier at the task of mixing RF signals, generally for a lower price.
+
+--
+
+Tim Wescott
+Wescott Design Services
+http://www.wescottdesign.com
+	
+ 
+Reply With Quote
+		
+ 
+Tam/WB2TT
+Guest
+Posts: n/a
+  	
+      09-21-2005, 05:24 PM
+
+"amoyou" <(E-Mail Removed)> wrote in message
+news:(E-Mail Removed) ups.com...
+>I am just wondering that, multiplier and Mixer all have the abality to
+> convert frequency, so what is the difference between them? and in the
+> transiver and receiver, we use mixer to up-down transfer the frequency,
+> why not multiplier???
+>
+This gets into semantics and convention. Historically, a multiplier has one
+input and 1 output. So, F(out)= nF(in) where n is an integer. It is not
+amplitude linear, but was widely used in FM transmitters. A mixer has two
+inputs, is generally linear, and the output contains the sum and difference
+frequencies of the two inputs. A mixer does not have to be linear; a logic
+Exclusive-OR gate is an excellent mixer. Any of these reqquires a filter at
+the output to select the correct signal.
+
+Tam
+
+
+	
+ 
+Reply With Quote
+		
+ 
+John Woodgate
+Guest
+Posts: n/a
+  	
+      09-21-2005, 05:36 PM
+I read in sci.electronics.design that Tam/WB2TT <t-tammaru@c0mca$t.net>
+wrote (in <RsqdnWQZYuXdFKzeRVn-(E-Mail Removed)>) about 'Multiplier VS.
+mixer', on Wed, 21 Sep 2005:
+
+> a logic Exclusive-OR gate is an excellent mixer
+
+It's also a four-quadrant multiplier.
+--
+Regards, John Woodgate, OOO - Own Opinions Only.
+If everything has been designed, a god designed evolution by natural selection.
+http://www.jmwa.demon.co.uk Also see http://www.isce.org.uk
+	
+ 
+Reply With Quote
+		
+ 
+Don Bowey
+Guest
+Posts: n/a
+  	
+      09-21-2005, 08:42 PM
+On 9/21/05 9:24 AM, in article RsqdnWQZYuXdFKzeRVn-(E-Mail Removed),
+"Tam/WB2TT" <t-tammaru@c0mca$t.net> wrote:
+
+>
+> "amoyou" <(E-Mail Removed)> wrote in message
+> news:(E-Mail Removed) ups.com...
+>> I am just wondering that, multiplier and Mixer all have the abality to
+>> convert frequency, so what is the difference between them? and in the
+>> transiver and receiver, we use mixer to up-down transfer the frequency,
+>> why not multiplier???
+>>
+> This gets into semantics and convention. Historically, a multiplier has one
+> input and 1 output. So, F(out)= nF(in) where n is an integer. It is not
+> amplitude linear, but was widely used in FM transmitters. A mixer has two
+> inputs, is generally linear, and the output contains the sum and difference
+> frequencies of the two inputs. A mixer does not have to be linear; a logic
+> Exclusive-OR gate is an excellent mixer. Any of these reqquires a filter at
+> the output to select the correct signal.
+>
+> Tam
+>
+>
+
+An RF mixer is never linear. Non-linearity is a *requirement* for correct
+amplitude modulation. The only valid context for "linear" in RF mixer
+discussions is in discussions of the transmitter's signal envelope and the
+received signal waveform; they are essentially the same, so the result of
+the modulation is considered linear.
+
+Don
+
+	
+ 
+Reply With Quote
+		
+ 
+Tam/WB2TT
+Guest
+Posts: n/a
+  	
+      09-21-2005, 08:50 PM
+
+"Don Bowey" <(E-Mail Removed)> wrote in message
+news:BF5705CF.120AE%(E-Mail Removed)...
+> On 9/21/05 9:24 AM, in article RsqdnWQZYuXdFKzeRVn-(E-Mail Removed),
+> "Tam/WB2TT" <t-tammaru@c0mca$t.net> wrote:
+>
+>>
+>> "amoyou" <(E-Mail Removed)> wrote in message
+>> news:(E-Mail Removed) ups.com...
+>>> I am just wondering that, multiplier and Mixer all have the abality to
+>>> convert frequency, so what is the difference between them? and in the
+>>> transiver and receiver, we use mixer to up-down transfer the frequency,
+>>> why not multiplier???
+>>>
+>> This gets into semantics and convention. Historically, a multiplier has
+>> one
+>> input and 1 output. So, F(out)= nF(in) where n is an integer. It is not
+>> amplitude linear, but was widely used in FM transmitters. A mixer has two
+>> inputs, is generally linear, and the output contains the sum and
+>> difference
+>> frequencies of the two inputs. A mixer does not have to be linear; a
+>> logic
+>> Exclusive-OR gate is an excellent mixer. Any of these reqquires a filter
+>> at
+>> the output to select the correct signal.
+>>
+>> Tam
+>>
+>>
+>
+> An RF mixer is never linear. Non-linearity is a *requirement* for correct
+> amplitude modulation. The only valid context for "linear" in RF mixer
+> discussions is in discussions of the transmitter's signal envelope and the
+> received signal waveform; they are essentially the same, so the result of
+> the modulation is considered linear.
+>
+> Don
+OK, I used the term loosly, meaning the amplitude and sideband information
+are retained.
+
+Tam
+
+
+	
+ 
+Reply With Quote
+		
+ 
+John Woodgate
+Guest
+Posts: n/a
+  	
+      09-21-2005, 09:40 PM
+I read in sci.electronics.design that Tam/WB2TT <t-tammaru@c0mca$t.net>
+wrote (in <MfednXeTBJnyJKzeRVn-(E-Mail Removed)>) about 'Multiplier VS.
+mixer', on Wed, 21 Sep 2005:
+
+>OK, I used the term loosly, meaning the amplitude and sideband
+>information are retained.
+
+I don't know that it's 'loose'. An analogue mixer (frequency-changer)
+is internally non-linear but externally linear. You can tell, because
+people want to know the overall intermodulation distortion
+characteristic, although they call it 'third-order intercept'.
+
+OTOH, an audio mixer had better be linear, linear, LINEAR. Unless it has
+fuzz (and/or several other toys) built-in as a feature. That sort of
+mixer is an adder, not a multiplier.
+--
+Regards, John Woodgate, OOO - Own Opinions Only.
+If everything has been designed, a god designed evolution by natural selection.
+http://www.jmwa.demon.co.uk Also see http://www.isce.org.uk
+	
+ 
+Reply With Quote
+		
+ 
+Roberto
+Guest
+Posts: n/a
+  	
+      09-22-2005, 02:02 PM
+to the question #1:
+
+mixing occurs whenever you apply a signal (like a simple ideal
+sinusoidal voltage) to the input of a non-linear block, meaning a
+black-box with a non-linear descriptive function, or a non-linear
+relationship between output and input.
+(Note that you cannot say a non-linear transfer function, because the
+concept of a transfer function is based on the hypothesis of linearity)
+
+Any non-linearity is ok for mixing, but where does multiplication come
+out?
+Consider a signal as the collection of its frequency components, i.e.
+spectrum lines, which you can represent with a sinusoidal signal.
+Well, good old mathematicians assure us that any non-linearity (among
+those physically found in any actual device) can be expanded in a power
+serie like:
+
+Fn(x) = x^0 + x^1 + x^2 +....+x^n
+
+eventually infinite. And here are the multiplications: x^2 = x * x ,
+and so on..
+So, the multiplications are required for mixing and a multiplier is a
+mixer.
+
+to the question #2:
+
+Suppose to take a multiplier and to apply the two frequencies you want
+to mix f1 and f2 to its inputs. If the multiplier is ideal, doing the
+math shows that
+
+A1*cos(2pi*f1 * t+phi1) * A2*cos(2pi*f2 * t+phi2)
+
+gives exactly what you want: f1+f2 and f1-f2, then with a simple filter
+you keep the one you like.
+unfortunately multipliers are not ideal because the single devices are
+themself non-linear (besides the whole circuit) and you'll find that
+the output signal will have different terms (with suitable
+multiplicative constants)
+
+K , x1,x2, x1^2,x2^2,x1*x2,x1^2 * x2 , x1*x2^2 ....
+| \ / \ / \ /
+| \/ \ / \ /
+order0 order1 order 2 order 3
+
+
+with typically at lease three or four significant orders. if x1 and x2
+are sinusoids, yuo'll have: f1 +/- f2, 2*f1 +/- f2, f1 +/- 2*f2, and
+much much more
+All of this is unacceptable if you have to do frequency conversione in
+a transceiver, because you'll spread "dirt" frequencies all around the
+spectrum !! ==> no FCC certification ==> no market ==> no money.
+Moreover it would also be extremely expensive to buil a filter capable
+of filtering out the extra frequency you get.
+
+So, what's a mixer? it's a clever circuit which performs x1 * x2 in a
+particular way, so that the multiplicative constants of the higher
+order terms are __zero__ and therefore do not contribute.
+To see how this is possible, look for:
+"balanced mixers" --> zeros out unwanted order 1 terms
+"double-balanced mixers" --> zeros out unwanted order 1 and 2 terms
+"triple-balanced mixers" --> guess what?
+
+Have fun,
+
+Roberto
+
+--------------------------------
+There are only 10 types of people in the world: those who understand
+binary and those who don't.
+
+	
+ 
+Reply With Quote
+		
+ 
+Phil Hobbs
+Guest
+Posts: n/a
+  	
+      09-22-2005, 03:01 PM
+John Woodgate wrote:
+
+>> OK, I used the term loosly, meaning the amplitude and sideband
+>> information are retained.
+>
+>
+> I don't know that it's 'loose'. An analogue mixer (frequency-changer)
+> is internally non-linear but externally linear. You can tell, because
+> people want to know the overall intermodulation distortion
+> characteristic, although they call it 'third-order intercept'.
+
+The mathematical propellorhead term for a good multiplier is "bilinear",
+i.e. the output depends linearly on each of two inputs. It isn't true
+that the internals have to be nonlinear--e.g. a Gilbert cell with
+linearizing diodes, where the multiplication comes from the very
+accurately bilinear current splitting of the diff pairs. Even if you
+leave off the diodes, a diff pair is linear in one input (the emitter
+current) and has a tanh characteristic in the other (delta-Vbe).
+
+Cheers,
+
+Phil Hobbs
+	
+ 
+Reply With Quote
+		
+ 
+	
+Ads by Google
+
+Cheap Electronics
+Connect with over 120,000 suppliers from Hong Kong, China and Taiwan
+www.hktdc.com
+	
+ 
+ 
+		
+Reply 	
+Page 1 of 3 	1 	2	3 	> 	
+
+« Log amp - why can't I stabilise it? | Re: Googleplex Star Thinker: The Google Operating System (GST) »
+
+Posting Rules
+You may not post new threads
+You may not post replies
+You may not post attachments
+You may not edit your posts
+BB code is On
+Smilies are On
+[IMG] code is On
+HTML code is Off
+Trackbacks are On
+Pingbacks are On
+Refbacks are Off
+Forum Rules
+	
+
+Similar Threads
+Thread 	Thread Starter 	Forum 	Replies 	Last Post
+Voltage multiplier 	Roger Dewhurst 	Electronic Basics 	7 	09-15-2006 10:55 PM
+current multiplier 	Winfield Hill 	Electronic Design 	12 	02-02-2006 03:25 PM
+Re: was (analog multiplier help) 	theJackal 	Electronic Design 	0 	12-24-2005 05:50 PM
+Re: Voltage multiplier Max at 70V??? 	Frank Bemelman 	Electronic Design 	0 	07-29-2003 08:43 PM
+OP AMP voltage multiplier 	Ahmed Samir 	Electronic Basics 	12 	07-04-2003 06:47 PM
+
+
+		
+Forum Software Powered by vBulletin. Copyright ©2000 - 2012, Jelsoft Enterprises Ltd.
+SEO by vBSEO 3.3.2 ©2009, Crawlability, Inc..
+	
+Contact Us - Electronics Forums - Archive - Privacy Statement - Top
+	
+
+1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98

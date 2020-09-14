@@ -1,0 +1,19 @@
+demodulation bpsk
+The previous mathematical description explains the principle behind coherent BPSK demodulation. 
+Such a structure is straightforward and lends itself well to understanding the concepts. However,
+ it is difficult to implement this circuit 
+because its performance is poor when non-ideal components are used. With some modification
+ (see Figure 4), the demodulator circuit becomes much more practical. The requirements placed
+ on the building blocks of the structure become far less demanding to achieve good performance.
+ The more realizable BPSK demodulator is based on a practical mixer that is allowed to be imperfect. 
+Such a mixer can be built using common semiconductor devices with small current requirements. Unlike
+ an ideal multiplier, easily implementable mixers are subject to overloading and high-order
+ non-linearities; undesired radio signals, which need not exist at even similar frequencies, 
+can mix in a complicated manner to produce undesired interference that superimposes the desired
+ 
+demodulation product. The solution is to place a channel filter before the mixer to preclude as 
+much off-channel energy from reaching the mixer as possible. The most common inexpensive channel
+ filters are second- and third-order surface acoustic wave (SAW) and ceramic type. However, neither
+ type exhibits ideal rectangular characteristics.
+
+what is bpsk?

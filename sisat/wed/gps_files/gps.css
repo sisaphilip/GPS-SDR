@@ -1,0 +1,1331 @@
+BODY {
+  background-color: transparent !
+  important
+}
+
+BODY {
+  background-color: rgb(255,255,255);
+  border: none;
+  font-family: Arial;
+  font-style: normal;
+  font-weight: 400;
+  text-align: left;
+  color: rgb(0,0,0)
+}
+BODY .graphicCaption {
+  font-style: normal;
+  font-weight: 400
+}
+BODY .plotCaption {
+  font-style: normal;
+  font-weight: 400
+}
+BODY A {
+  font-family: Arial;
+  font-size: 100%;
+  font-style: normal;
+  font-weight: 400;
+  color: rgb(128,0,128)
+}
+BODY TABLE {
+  padding-left: 0pt;
+  padding-right: 0pt;
+  padding-top: 0pt;
+  padding-bottom: 0pt
+}
+BODY TD {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+  padding-top: 0.5ex;
+  padding-bottom: 0.5ex
+}
+UL {
+  list-style-type: disc
+}
+UL UL {
+  list-style-type: disc
+}
+UL UL UL {
+  list-style-type: disc
+}
+UL UL UL UL {
+  list-style-type: disc
+}
+OL {
+  list-style-type: decimal
+}
+OL OL {
+  list-style-type: lower-alpha
+}
+OL OL OL {
+  list-style-type: lower-roman
+}
+OL OL OL OL {
+  list-style-type: upper-alpha
+}
+P.error {
+  font-size: 167%;
+  font-weight: 700;
+  color: rgb(255,0,0)
+}
+P.Body-Math {
+  color: rgb(64,64,64)
+}
+H1.part {
+  font-size: 183%;
+  color: rgb(9,62,125);
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 6pt;
+  margin-right: 0pt;
+  margin-bottom: 2pt
+}
+H1.section {
+  font-size: 150%;
+  color: rgb(9,62,125);
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 6pt;
+  margin-right: 0pt;
+  margin-bottom: 2pt
+}
+H2.subsection {
+  font-size: 133%;
+  color: rgb(9,62,125);
+  text-indent: 7pt;
+  margin-left: 0pt;
+  margin-top: 2pt;
+  margin-right: 0pt;
+  margin-bottom: 2pt
+}
+H3.subsubsection {
+  font-size: 117%;
+  color: rgb(9,62,125);
+  text-indent: 0pt;
+  margin-left: 7pt;
+  margin-top: 6pt;
+  margin-right: 7pt;
+  margin-bottom: 4pt
+}
+H4.paragraph {
+  font-weight: 700;
+  color: rgb(9,62,125);
+  text-indent: 0pt;
+  margin-left: 7pt;
+  margin-top: 6pt;
+  margin-right: 7pt;
+  margin-bottom: 4pt
+}
+H5.subparagraph {
+  color: rgb(9,62,125);
+  text-indent: 0pt;
+  margin-left: 7pt;
+  margin-top: 6pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+EM {
+  font-style: italic;
+  color: rgb(9,62,125)
+}
+EM SPAN.inlineMath {
+  color: rgb(255,0,255)
+}
+SPAN.rm {
+  font-family: Times New Roman;
+  color: rgb(0,0,255)
+}
+SPAN.rm SPAN.inlineMath {
+  color: rgb(0,0,255)
+}
+STRONG {
+  font-weight: 700
+}
+SPAN.it {
+  font-style: italic
+}
+SPAN.it SPAN.inlineMath {
+  color: rgb(0,255,255)
+}
+SPAN.sl {
+  font-style: italic;
+  font-weight: 700;
+  color: rgb(9,62,125)
+}
+SPAN.sf {
+  font-family: Arial;
+  font-weight: 400;
+  color: rgb(9,62,125)
+}
+SPAN.sf SPAN.inlineMath {
+  color: rgb(256,0,0)
+}
+SPAN.sc {
+  font-family: CMCSC10;
+  color: rgb(0,0,0)
+}
+SPAN.sc SPAN.inlineMath {
+  color: rgb(0,128,0)
+}
+SPAN.tt {
+  font-family: Courier New;
+  font-weight: 700
+}
+SPAN.tt SPAN.inlineMath {
+  color: rgb(0,0,0)
+}
+DL.description DD P {
+  text-indent: -43pt;
+  margin-left: 43pt;
+  margin-top: 4pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+DL.description DT.leadin {
+  font-style: normal;
+  font-weight: 700;
+  color: rgb(9,62,125)
+}
+OL LI P {
+  text-indent: 0pt;
+  margin-left: 25pt;
+  margin-top: 4pt;
+  margin-right: 25pt;
+  margin-bottom: 4pt
+}
+OL .leadin {
+  font-weight: 700;
+  color: rgb(9,62,125)
+}
+UL LI P {
+  text-align: left;
+  text-indent: 0pt;
+  margin-left: 36pt;
+  margin-top: 1pt;
+  margin-right: 18pt;
+  margin-bottom: 1pt
+}
+UL .leadin {
+  font-size: 50%;
+  color: rgb(9,62,125)
+}
+SPAN.cal {
+  font-family: CMSY10;
+  color: rgb(192,192,192)
+}
+SPAN.tiny {
+  font-size: 50%
+}
+SPAN.scriptsize {
+  font-size: 67%
+}
+SPAN.footnotesize {
+  font-size: 75%
+}
+SPAN.small {
+  font-size: 83%
+}
+SPAN.normalsize {
+  font-size: 100%
+}
+SPAN.large1 {
+  font-size: 117%
+}
+SPAN.large2 {
+  font-size: 133%
+}
+SPAN.large3 {
+  font-size: 150%
+}
+SPAN.huge1 {
+  font-size: 167%
+}
+SPAN.huge2 {
+  font-size: 183%
+}
+P.quotation {
+  background-color: rgb(242,242,242);
+  border: none;
+  color: rgb(9,62,125);
+  text-indent: 0pt;
+  margin-left: 58pt;
+  margin-top: 7pt;
+  margin-right: 40pt;
+  margin-bottom: 7pt
+}
+P.quote {
+  text-align: left;
+  color: rgb(9,62,125);
+  text-indent: 18pt;
+  margin-left: 40pt;
+  margin-top: 0pt;
+  margin-right: 40pt;
+  margin-bottom: 0pt
+}
+P.center {
+  text-align: center;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+P.f-0 {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.f-0 SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-family: Arial;
+  font-weight: 700
+}
+P.f-0-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+P.f-1 {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.f-1 SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-family: Arial;
+  font-weight: 700
+}
+P.f-1-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+P.f-2 {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.f-2 SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-weight: 700
+}
+P.f-2-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+P.f-7 {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.f-7 SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-family: Arial;
+  font-weight: 700
+}
+P.f-7-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+P.abstract {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.abstract SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-weight: 700
+}
+P.abstract-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+P.f-11 {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.f-11 SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-weight: 700
+}
+P.f-11-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+P.f-12 {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.f-12 SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-family: Arial;
+  font-weight: 700
+}
+P.f-12-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+P.f-13 {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.f-13 SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-weight: 700
+}
+P.f-13-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+P.f-14 {
+  text-indent: -48pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 0pt
+}
+DIV.f-14 SPAN.leadin {
+  background-color: rgb(255,225,225);
+  font-weight: 700
+}
+P.f-14-FirstPara {
+  text-indent: 0pt;
+  margin-left: 48pt;
+  margin-top: 0pt;
+  margin-right: -18pt;
+  margin-bottom: 4pt
+}
+SPAN.frak {
+  font-family: EUFM10;
+  font-style: normal;
+  color: rgb(192,192,192)
+}
+SPAN.Bbb {
+  font-family: msbm10;
+  color: rgb(192,192,192)
+}
+P.proof {
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.proof SPAN.leadin {
+  font-weight: 700
+}
+P.proof-FirstPara {
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.acknowledgement {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.acknowledgement SPAN.leadin {
+  font-weight: 700
+}
+P.acknowledgement-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.algorithm {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.algorithm SPAN.leadin {
+  font-weight: 700
+}
+P.algorithm-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.axiom {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.axiom SPAN.leadin {
+  font-weight: 700
+}
+P.axiom-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.case {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.case SPAN.leadin {
+  font-weight: 700
+}
+P.case-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.claim {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.claim SPAN.leadin {
+  font-weight: 700
+}
+P.claim-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.conclusion {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.conclusion SPAN.leadin {
+  font-weight: 700
+}
+P.conclusion-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.condition {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.condition SPAN.leadin {
+  font-weight: 700
+}
+P.condition-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.conjecture {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.conjecture SPAN.leadin {
+  font-weight: 700
+}
+P.conjecture-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.corollary {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.corollary SPAN.leadin {
+  font-weight: 700
+}
+P.corollary-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.criterion {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.criterion SPAN.leadin {
+  font-weight: 700
+}
+P.criterion-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.definition {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.definition SPAN.leadin {
+  font-weight: 700
+}
+P.definition-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.example {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.example SPAN.leadin {
+  font-weight: 700
+}
+P.example-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.exercise {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.exercise SPAN.leadin {
+  font-weight: 700
+}
+P.exercise-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.lemma {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.lemma SPAN.leadin {
+  font-weight: 700
+}
+P.lemma-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.notation {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.notation SPAN.leadin {
+  font-weight: 700
+}
+P.notation-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.problem {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.problem SPAN.leadin {
+  font-weight: 700
+}
+P.problem-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.proposition {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.proposition SPAN.leadin {
+  font-weight: 700
+}
+P.proposition-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.remark {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.remark SPAN.leadin {
+  font-weight: 700
+}
+P.remark-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.solution {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.solution SPAN.leadin {
+  font-weight: 700
+}
+P.solution-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.summary {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.summary SPAN.leadin {
+  font-weight: 700
+}
+P.summary-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+P.theorem {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 0pt
+}
+DIV.theorem SPAN.leadin {
+  font-weight: 700
+}
+P.theorem-FirstPara {
+  font-style: italic;
+  text-indent: 0pt;
+  margin-left: 0pt;
+  margin-top: 0pt;
+  margin-right: 0pt;
+  margin-bottom: 4pt
+}
+SPAN.huge2 SPAN.huge2 {
+  font-size: 100%
+}
+SPAN.huge2 SPAN.large3 {
+  font-size: 82%
+}
+SPAN.huge2 SPAN.large2 {
+  font-size: 73%
+}
+SPAN.huge2 SPAN.footnotesize {
+  font-size: 41%
+}
+SPAN.huge2 SPAN.huge1 {
+  font-size: 91%
+}
+SPAN.huge2 SPAN.large1 {
+  font-size: 64%
+}
+SPAN.huge2 SPAN.normalsize {
+  font-size: 55%
+}
+SPAN.huge2 SPAN.scriptsize {
+  font-size: 36%
+}
+SPAN.huge2 SPAN.small {
+  font-size: 45%
+}
+SPAN.huge2 SPAN.tiny {
+  font-size: 27%
+}
+SPAN.large3 SPAN.huge2 {
+  font-size: 122%
+}
+SPAN.large3 SPAN.large3 {
+  font-size: 100%
+}
+SPAN.large3 SPAN.large2 {
+  font-size: 89%
+}
+SPAN.large3 SPAN.footnotesize {
+  font-size: 50%
+}
+SPAN.large3 SPAN.huge1 {
+  font-size: 111%
+}
+SPAN.large3 SPAN.large1 {
+  font-size: 78%
+}
+SPAN.large3 SPAN.normalsize {
+  font-size: 67%
+}
+SPAN.large3 SPAN.scriptsize {
+  font-size: 44%
+}
+SPAN.large3 SPAN.small {
+  font-size: 56%
+}
+SPAN.large3 SPAN.tiny {
+  font-size: 33%
+}
+SPAN.large2 SPAN.huge2 {
+  font-size: 138%
+}
+SPAN.large2 SPAN.large3 {
+  font-size: 113%
+}
+SPAN.large2 SPAN.large2 {
+  font-size: 100%
+}
+SPAN.large2 SPAN.footnotesize {
+  font-size: 56%
+}
+SPAN.large2 SPAN.huge1 {
+  font-size: 125%
+}
+SPAN.large2 SPAN.large1 {
+  font-size: 88%
+}
+SPAN.large2 SPAN.normalsize {
+  font-size: 75%
+}
+SPAN.large2 SPAN.scriptsize {
+  font-size: 50%
+}
+SPAN.large2 SPAN.small {
+  font-size: 63%
+}
+SPAN.large2 SPAN.tiny {
+  font-size: 38%
+}
+P.error SPAN.huge2 {
+  font-size: 110%
+}
+P.error SPAN.large3 {
+  font-size: 90%
+}
+P.error SPAN.large2 {
+  font-size: 80%
+}
+P.error SPAN.footnotesize {
+  font-size: 45%
+}
+P.error SPAN.huge1 {
+  font-size: 100%
+}
+P.error SPAN.large1 {
+  font-size: 70%
+}
+P.error SPAN.normalsize {
+  font-size: 60%
+}
+P.error SPAN.scriptsize {
+  font-size: 40%
+}
+P.error SPAN.small {
+  font-size: 50%
+}
+P.error SPAN.tiny {
+  font-size: 30%
+}
+SPAN.footnotesize SPAN.huge2 {
+  font-size: 244%
+}
+SPAN.footnotesize SPAN.large3 {
+  font-size: 200%
+}
+SPAN.footnotesize SPAN.large2 {
+  font-size: 178%
+}
+SPAN.footnotesize SPAN.footnotesize {
+  font-size: 100%
+}
+SPAN.footnotesize SPAN.huge1 {
+  font-size: 222%
+}
+SPAN.footnotesize SPAN.large1 {
+  font-size: 156%
+}
+SPAN.footnotesize SPAN.normalsize {
+  font-size: 133%
+}
+SPAN.footnotesize SPAN.scriptsize {
+  font-size: 89%
+}
+SPAN.footnotesize SPAN.small {
+  font-size: 111%
+}
+SPAN.footnotesize SPAN.tiny {
+  font-size: 67%
+}
+SPAN.huge1 SPAN.huge2 {
+  font-size: 110%
+}
+SPAN.huge1 SPAN.large3 {
+  font-size: 90%
+}
+SPAN.huge1 SPAN.large2 {
+  font-size: 80%
+}
+SPAN.huge1 SPAN.footnotesize {
+  font-size: 45%
+}
+SPAN.huge1 SPAN.huge1 {
+  font-size: 100%
+}
+SPAN.huge1 SPAN.large1 {
+  font-size: 70%
+}
+SPAN.huge1 SPAN.normalsize {
+  font-size: 60%
+}
+SPAN.huge1 SPAN.scriptsize {
+  font-size: 40%
+}
+SPAN.huge1 SPAN.small {
+  font-size: 50%
+}
+SPAN.huge1 SPAN.tiny {
+  font-size: 30%
+}
+SPAN.large1 SPAN.huge2 {
+  font-size: 157%
+}
+SPAN.large1 SPAN.large3 {
+  font-size: 129%
+}
+SPAN.large1 SPAN.large2 {
+  font-size: 114%
+}
+SPAN.large1 SPAN.footnotesize {
+  font-size: 64%
+}
+SPAN.large1 SPAN.huge1 {
+  font-size: 143%
+}
+SPAN.large1 SPAN.large1 {
+  font-size: 100%
+}
+SPAN.large1 SPAN.normalsize {
+  font-size: 86%
+}
+SPAN.large1 SPAN.scriptsize {
+  font-size: 57%
+}
+SPAN.large1 SPAN.small {
+  font-size: 71%
+}
+SPAN.large1 SPAN.tiny {
+  font-size: 43%
+}
+H1.part SPAN.huge2 {
+  font-size: 100%
+}
+H1.part SPAN.large3 {
+  font-size: 82%
+}
+H1.part SPAN.large2 {
+  font-size: 73%
+}
+H1.part SPAN.footnotesize {
+  font-size: 41%
+}
+H1.part SPAN.huge1 {
+  font-size: 91%
+}
+H1.part SPAN.large1 {
+  font-size: 64%
+}
+H1.part SPAN.normalsize {
+  font-size: 55%
+}
+H1.part SPAN.scriptsize {
+  font-size: 36%
+}
+H1.part SPAN.small {
+  font-size: 45%
+}
+H1.part SPAN.tiny {
+  font-size: 27%
+}
+SPAN.scriptsize SPAN.huge2 {
+  font-size: 275%
+}
+SPAN.scriptsize SPAN.large3 {
+  font-size: 225%
+}
+SPAN.scriptsize SPAN.large2 {
+  font-size: 200%
+}
+SPAN.scriptsize SPAN.footnotesize {
+  font-size: 113%
+}
+SPAN.scriptsize SPAN.huge1 {
+  font-size: 250%
+}
+SPAN.scriptsize SPAN.large1 {
+  font-size: 175%
+}
+SPAN.scriptsize SPAN.normalsize {
+  font-size: 150%
+}
+SPAN.scriptsize SPAN.scriptsize {
+  font-size: 100%
+}
+SPAN.scriptsize SPAN.small {
+  font-size: 125%
+}
+SPAN.scriptsize SPAN.tiny {
+  font-size: 75%
+}
+H1.section SPAN.huge2 {
+  font-size: 122%
+}
+H1.section SPAN.large3 {
+  font-size: 100%
+}
+H1.section SPAN.large2 {
+  font-size: 89%
+}
+H1.section SPAN.footnotesize {
+  font-size: 50%
+}
+H1.section SPAN.huge1 {
+  font-size: 111%
+}
+H1.section SPAN.large1 {
+  font-size: 78%
+}
+H1.section SPAN.normalsize {
+  font-size: 67%
+}
+H1.section SPAN.scriptsize {
+  font-size: 44%
+}
+H1.section SPAN.small {
+  font-size: 56%
+}
+H1.section SPAN.tiny {
+  font-size: 33%
+}
+SPAN.small SPAN.huge2 {
+  font-size: 220%
+}
+SPAN.small SPAN.large3 {
+  font-size: 180%
+}
+SPAN.small SPAN.large2 {
+  font-size: 160%
+}
+SPAN.small SPAN.footnotesize {
+  font-size: 90%
+}
+SPAN.small SPAN.huge1 {
+  font-size: 200%
+}
+SPAN.small SPAN.large1 {
+  font-size: 140%
+}
+SPAN.small SPAN.normalsize {
+  font-size: 120%
+}
+SPAN.small SPAN.scriptsize {
+  font-size: 80%
+}
+SPAN.small SPAN.small {
+  font-size: 100%
+}
+SPAN.small SPAN.tiny {
+  font-size: 60%
+}
+H2.subsection SPAN.huge2 {
+  font-size: 138%
+}
+H2.subsection SPAN.large3 {
+  font-size: 113%
+}
+H2.subsection SPAN.large2 {
+  font-size: 100%
+}
+H2.subsection SPAN.footnotesize {
+  font-size: 56%
+}
+H2.subsection SPAN.huge1 {
+  font-size: 125%
+}
+H2.subsection SPAN.large1 {
+  font-size: 88%
+}
+H2.subsection SPAN.normalsize {
+  font-size: 75%
+}
+H2.subsection SPAN.scriptsize {
+  font-size: 50%
+}
+H2.subsection SPAN.small {
+  font-size: 63%
+}
+H2.subsection SPAN.tiny {
+  font-size: 38%
+}
+H3.subsubsection SPAN.huge2 {
+  font-size: 157%
+}
+H3.subsubsection SPAN.large3 {
+  font-size: 129%
+}
+H3.subsubsection SPAN.large2 {
+  font-size: 114%
+}
+H3.subsubsection SPAN.footnotesize {
+  font-size: 64%
+}
+H3.subsubsection SPAN.huge1 {
+  font-size: 143%
+}
+H3.subsubsection SPAN.large1 {
+  font-size: 100%
+}
+H3.subsubsection SPAN.normalsize {
+  font-size: 86%
+}
+H3.subsubsection SPAN.scriptsize {
+  font-size: 57%
+}
+H3.subsubsection SPAN.small {
+  font-size: 71%
+}
+H3.subsubsection SPAN.tiny {
+  font-size: 43%
+}
+SPAN.tiny SPAN.huge2 {
+  font-size: 367%
+}
+SPAN.tiny SPAN.large3 {
+  font-size: 300%
+}
+SPAN.tiny SPAN.large2 {
+  font-size: 267%
+}
+SPAN.tiny SPAN.footnotesize {
+  font-size: 150%
+}
+SPAN.tiny SPAN.huge1 {
+  font-size: 333%
+}
+SPAN.tiny SPAN.large1 {
+  font-size: 233%
+}
+SPAN.tiny SPAN.normalsize {
+  font-size: 200%
+}
+SPAN.tiny SPAN.scriptsize {
+  font-size: 133%
+}
+SPAN.tiny SPAN.small {
+  font-size: 167%
+}
+SPAN.tiny SPAN.tiny {
+  font-size: 100%
+}
+PRE SPAN.huge2 {
+  font-size: 220%
+}
+PRE SPAN.large3 {
+  font-size: 180%
+}
+PRE SPAN.large2 {
+  font-size: 160%
+}
+PRE P.error {
+  font-size: 200%
+}
+PRE SPAN.footnotesize {
+  font-size: 90%
+}
+PRE SPAN.huge1 {
+  font-size: 200%
+}
+PRE SPAN.large1 {
+  font-size: 140%
+}
+PRE SPAN.normalsize {
+  font-size: 120%
+}
+PRE H1.part {
+  font-size: 220%
+}
+PRE SPAN.scriptsize {
+  font-size: 80%
+}
+PRE H1.section {
+  font-size: 180%
+}
+PRE SPAN.small {
+  font-size: 100%
+}
+PRE H2.subsection {
+  font-size: 160%
+}
+PRE H3.subsubsection {
+  font-size: 140%
+}
+PRE SPAN.tiny {
+  font-size: 60%
+}
+PRE PRE {
+  font-size: 100%
+}

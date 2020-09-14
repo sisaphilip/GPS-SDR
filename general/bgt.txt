@@ -1,0 +1,127 @@
+RECOGNIZING AND DEALING WITH AVC PROBLEMS
+
+    Do you reach for the RF gain control when you tune your local AM broadcast station?  One of the most commonly heard complaints from owners of  "boatanchor" communications receivers and other vintage high-performance radios is:  "The audio is distorted on strong  signals."  While audio distortion may be the result of an inoperative or poorly tuned stage or stages in the receiver, once the first-order bugs are exorcised and full sensitivity is realized, this distortion is almost always an AGC problem.
+
+THE NEED FOR GAIN CONTROL
+ 
+    The overall combined maximum voltage gain through the RF and IF stages of common receivers is on the order of a million.  For AM and SSB reception, all of these amplifiers must operate in a linear mode, i.e. they must not saturate or clip, if the signal’s modulation envelope is to be accurately reproduced.  Obviously, the full gain of the receiver is needed only for the weakest signals.
+    In tube type receivers the RF and IF gain control is almost universally accomplished through the magic of  the remote-cutoff pentode.  The gain of amplifier stages using these "variable mu" tubes, such as the 6K7, 6SK7,  and 6BA6,  can be varied electrically by changing the bias on the signal grids.  Because the gain of a single stage can not be reduced to zero, gain control signals are generally applied to all the RF and IF amplifier stages and sometimes to the mixer(s).
+
+AUTOMATIC GAIN CONTROL
+ 
+    In almost all receivers since the early 1930’s, especially for AM reception, the RF and IF gain is controlled automatically.   This not only accommodates fading, but avoids "blasting" on strong signals or missing weak signals all together when tuning across the band. Throughout the 1930’s and  early ‘40’s this function was referred to as automatic volume control (AVC).  In the WWII era, with the introduction of systems, such as TV and radar, where the parameter being controlled is not audio volume, the term automatic gain control (AGC) begins to creep in.  For our purposes, it means the same thing.
+ 
+    In broadcast receivers, the AGC function is universally present, but is generally hidden from the user.  The "volume" control knob effects only the gain of the audio amplifier.
+    Communication receivers usually have both automatic and manual RF gain controls.  The manual control is intended for use in situations, such as CW reception, where the AGC circuit may not function properly.  Any quality communication receiver, in proper operating condition, will receive all but the most grotesquely strong AM signals with minimal distTHE FIXortion in the AGC mode with the manual gain control wide open
+ 
+IMPLEMENTATION
+
+    AGC is accomplished by recovering a DC signal from the detector stage that is proportional to the signal strength and applying it to the gain-controlled stages in such a way as to reduce the gain as signal strength increases.  In tube-type receivers, the AGC voltage will always become more negative with increasing signal strength.  The AGC signal must be low-pass filtered to remove the audio component of the signal, lest the AGC system suppress the modulation of the incoming signal.
+    In most common applications, the AGC signal is picked off from the junction of the last IF transformer secondary and the detector-diode load resistor.  (Which may be masquerading as the audio gain control potentiometer.)  The AGC signal will pass through a series of high value resistors on it’s way to the control-grid return connections of each of the gain-controlled stages.  This AGC "bus" will also have a number of capacitors from the various resistor junctions to ground.  The larger caps, at the detector end of the bus, establish the basic AGC time constant,  while the others further filter the AGC signal and
+bypass stray RF signals to ground.
+
+THE PROBLEM
+
+     The receiver is in ostensibly good operating condition:  All stages have known good tubes with the appropriate voltages on their elements.  The set is aligned properly and all the adjustments could be peaked.  And, you can hear weak signals at least down to about 10 microvolts.  When tuned to a distant AM station the audio sounds good.  When tuned to a local; distortion is obvious, and goes away when you switch to MGC and reduce the gain.  The condition can also be observed by connecting a modulated signal generator to the antenna terminal.  You should be able to bring the signal level up to the better part of a volt before serious distortion can be heard or the audio output "folds back" to a lower level.
+    The AGC bus is generally a very high impedance circuit so as not to unduly load the detector circuit.  Furthermore, because the gain of the controlled stages increases EXPONENTIALLY with a decrease in AGC voltage, even small amounts of leakage will cause the AGC system to malfunction.  The source of this leakage is almost always the capacitors on the AGC bus.  How much leakage is acceptable?  Al’s law:  10 megs is a significant problem, 1 meg is a disaster.
+
+
+
+    In receivers with paper caps, especially the dreaded "Micamolds" or anything coated with wax:  REPLACE ALL THE PAPER CAPS.  In fact, do this before you even turn the set on and save yourself a lot of trouble.  A quality vintage receiver can often be brought back to life and play quite nicely by just shotgunning the caps and making no adjustments at all.  Then a "light" alignment puts it in primo condition.  I keep coming back to an observation I heard from an old time race car mechanic:  "Don’t even try to tune junk."
+    So you do the above, and things get better, but there’s still a problem with strong signals.  What now?  Make a Xerox copy of your schematic, and highlight the AGC bus.  Disconnect the bus from the diode-load resistor and measure the resistance from the bus to ground.  It should be essentially infinite. This will enable you to find any caps you missed (or decided to ignore like those inside IF cans), other leaky components (I’m starting to find leaky postage stamp mica caps.) or physical shorts.  Most digital meters measure to 20 megs and are usually adequate.  The Hewlet Packard HP 410 series of meters  will read 100’s of megs and are recommended for the truly paranoid.
+    Some receivers, the R-390 family in particular, have a high value resistor to ground at the far end of the AGC bus.  You need to disconnect it to perform the above test.
+    When you look at a schematic, the AGC circuit is all but invisible.  So it’s not surprising that it’s often overlooked as a source of trouble.  Hopefully, this article will help get the old sets playing properly again.
+ 
+ HOME
+/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+i f
+i f
+
+
+Figure 1 also shows a block diagram of the radio front end circuitry.  It includes an RF filter to reject out- of-band signals, followed by a Low Noise Amplifier (LNA), a second RF filter, Mixer and finally the Intermediate Frequency (IF) filter.  Channel selection occurs at the Intermediate Frequency (IF), where the narrow band IF filter blocks out the other channels.  This means that if the interferer (radio A) is in close proximity, and is transmitting while radio B is trying to receive, it may saturate the LNA or the Mixer of radio B.  This results in radio B making errors even when it is set to a different channel than radio A. 
+IF amplifier filters assumes you have done the previous tutorials and I really don't have to hold your hand. Some of the "key" information here took me over twenty years to unearth and I still find it a fascinating topic, although it is largely redundent with today's technology of crystal or ceramic filters.
+
+For reasons of clarity, formulas will often be .gif files, when you see the first one you will realise why.
+
+At the outset please understand that the best response you can possibly get from if amplifiers filters would be a 1% fractional bandwidth and even then you would be pushing it very hard.
+
+In the real world I'd suggest you don't even consider looking beyond 2% bandwidth. What that means is this - if I wanted an if amplifier filter with a bandwidth of say 5 Khz then if that represented 2% which in fact is 1/50th then the IF would be 50 X 5 Khz = 250 Khz.
+
+Disappointed? Sorry that's reality!. Why would you bother?
+
+Check out the latest price for say a 9 Khz wide crystal filter at any IF. One off, for non standard IF's and you're looking at $US 100.00. Standard IF's probably $US 50.00. H'mmm then for my oddball project maybe doing my own IF filter isn't such a bad idea. Read on.
+
+How about we get some pictorial representation of what we are about and then I'll delve into all the bells and whistles of if amplifier filters.
+
+
+This image is copyright © by Ian C. Purdie VK2TIP - if amplifier filter block diagram
+
+Figure 1 - if amplifier filter block diagram
+
+Now here I've depicted three I.F. transformers separated by two stages of amplification which could be valves, transistors or integrated circuits. We will not consider the actual active or amplifier stages here now, just the I.F. transformers and the circuit as a whole as an if amplifier filtering block.
+
+These a called "synchronously tuned filters" because each stage is coupled by an active device. From earlier filter tutorials you will remember the filter bandwidth determined the required bandpass Q or Qbp. An example we will use throughout this tutorial will be an IF stage from a typical transistor radio at 455 Kz with a bandwidth of 10 Khz.
+
+Why worry you ask, why not use some surplus 455 Khz I.F. transformers and move them up or down in frequency to suit? Indeed why not! You are about to be imparted with my "black art" of I.F. transformer design wherein you will discover that such a casual approach can be quite disasterous! Don't believe me? Read on.
+
+Guess how many technical articles I have read over the years where people have done just that. But don't confuse those with other quite sensible examples of what appears to be casual if amplifier filter design where the author has simply included standard I.F. transformers etc after crystal filters which were followed by wideband amplifiers. The job there was to minimise wideband noise (those amplifiers are wideband).
+
+Here we go, mathematically you can take several approaches to reach the very same end goal.
+
+If our IF is 455 Khz and bandwidth is 10 Khz then Qbp = 455 / 10 = 45.5 This is a high number but single filter synchronously tuned stages (as in Fig 1) offer a relaxation on Qbp in accordance with the following formula. Here's why it's a .gif file.
+
+This image is copyright © by Ian C. Purdie VK2TIP - if amplifier - formula for Qbp
+
+Figure 2 - if amplifier - formula for Qbp
+
+Now if that doesn't frighten you nothing will. Don't worry I'll talk you through it!
+Number of resonators per stage in if amplifier filters
+
+The "m" in Fig 2 is for the number of resonators per stage. That is the number of capacitor and inductor combinations per stage in your if amplifier filter. In Fig 1 there is only one per stage, i.e. one coil / capacitor combination. Therefore m + 1 = 1 + 1 = 2. Substituting the number two into the m + 1 position indicates "the square root". If we were using double tuned resonators then m = 2 so M + 1 = 2 + 1 = 3. Substituting 3 in place of m + 1 would indicate the cube root. If we had triple resonators then m + 1 = 4 which is the fourth root or the "square root of the square root".
+
+The "n" indicates the number of stages we have. In fig 1 we have depicted three stages so 1 / n = 1/3 = 0.3333. Now 2 raised to a power of 0.333 = 1.26 (on my calculator the steps are 2 - Yx - 0.333). From the formula we're told to subtract 1 which leaves us with 0.26. Because it is a single resonator filter m + 1 = 1 + 1 = 2, so we take the square root of 0.26 which of course = 0.51
+
+That's the hard part over. Earlier I said a 10 Khz wide IF filter at 455 Khz required a Qbp of 455 / 10 = 45.5. This number is NOW multiplied by the 0.51 calculated from Fig 2 which means Qbp = 45.5 X 0.51 = 23.2
+Determining impedance of if amplifier filters
+
+If you have done the earlier tutorials on filters you will recall that Z or more correctly R = (2 * pi * Fo * L * Qbp) Typical 455 Khz IF transormers are nominally 680 uH variable inductors resonated by 180 pF capacitors. In this case we get (2 * 3.1416 * 0.455 * 680 uH * 23.2) = 45,101 which is a typical impedance for that kind of transformer.
+
+If the collector load required for the transistor was say 10K then the transformer would be centre-tapped. If the next stage wanted to see 1K then the coupling turns winding would be the square root of 45K / 1K = 6.7 That means the coupling winding or secondary would have 1 / 6.7th number of turns as the primary.
+
+From here on it is a matter of simple algebra to plug in the knowns to derive the unknowns.
+
+An absolutely critical feature, as in all filters, are the terminating impedances.
+
+It is pointless designing a filter which needs to see say 10K, but in fact is terminated in something widely different. You can't argue with the sums above. Don't waste your time.
+
+If you want to experiment with 455 Khz transformers then forget the secondary windings altogether unless you actually do know the turns (pri:sec) ratio. Believe me literally thousands of different types have been produced. Most have yellow cores, some black, some white but for example no two yellow core types with different numbers (if any) on the can will be the same. Typical (but not always) yellow cores had 146 turns centre tapped primary and often 9 turns secondaries, presumably for 2K7 loads or similar. The red cores are most likely oscillator coils of about 90 turns and a nominal inductance of around 120 uH but not for certain. If you're anywhere near serious about filter experimentation and can afford about $100 for an LC Meter Kit then buy Neil's Inductance / Capacitance Meter Kit it's well worth the money believe me. Tell Neil I sent you! No discount, but I'm sure Neil will give you a friendly grin.
+
+Now for a big gotcha!
+
+Remember in earlier tutorials on 'Q' I said the unloaded Q (Qu) should be at least 5 times the loaded Q otherwise insertion losses become prohibitive? Well these IF transformers have Qu's ranging from 80 to 120. That is a limiting factor with experimentation. BTW as an aside when you turn a can upside down and see what looks like a mini coil sunk in the bottom it is in fact the resonating capacitor (probably 180 pF).
+
+Experimentation I think is better done with toroids capable of very high Qu (200T of #15/44 litz wire on a T94-2 core gives Qu of 250 at 450 Khz - 328 uH - as just one example). Generally speaking the larger diameter cores produce the better Qu's and litz wire certainly enhances it but litz wire is very hard to come by in small quantities. Pot cores are another area for experimentation. Manufacturers like Neosid claim very impressive Qu's as well as variable inductance.
+
+If you are comfortable with maths this is a fascinating topic leading to a whole lot of "what if's" for the serious experimenter. If you do experiment then let me know because I really like to hear from you about it.
+
+ 

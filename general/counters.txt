@@ -1,0 +1,77 @@
+In electronics, counters can be implemented quite easily using register-type circuits such as the flip-flop, and a wide variety of classifications exist:
+
+    Asynchronous (ripple) counter – changing state bits are used as clocks to subsequent state flip-flops
+    Synchronous counter – all state bits change under control of a single clock
+    Decade counter – counts through ten states per stage
+    Up/down counter – counts both up and down, under command of a control input
+    Ring counter – formed by a shift register with feedback connection in a ring
+    Johnson counter – a twisted ring counter
+    Cascaded counter
+
+Each is useful for different applications. Usually, counter circuits are digital in nature, and count in natural binary. Many types of counter circuits are available as digital building blocks, for example a number of chips in the 4000 series implement different counters.
+
+Occasionally there are advantages to using a counting sequence other than the natural binary sequence—such as the binary coded decimal counter, a linear feedback shift register counter, or a Gray-code counter.
+
+Counters are useful for digital clocks and timers, and in oven timers, VCR clocks, etc.[1]
+[edit] Asynchronous (ripple) counter
+Asynchronous counter created from two JK flip-flops
+
+An asynchronous (ripple) counter is a single JK-type flip-flop, with its J (data) input fed from its own inverted output. This circuit can store one bit, and hence can count from zero to one before it overflows (starts over from 0). This counter will increment once for every clock cycle and takes two clock cycles to overflow, so every cycle it will alternate between a transition from 0 to 1 and a transition from 1 to 0. Notice that this creates a new clock with a 50% duty cycle at exactly half the frequency of the input clock. If this output is then used as the clock signal for a similarly arranged D flip-flop (remembering to invert the output to the input), you will get another 1 bit counter that counts half as fast. Putting them together yields a two-bit counter:
+Cycle 	Q1 	Q0 	(Q1:Q0)dec
+0 	0 	0 	0
+1 	0 	1 	1
+2 	1 	0 	2
+3 	1 	1 	3
+4 	0 	0 	0
+
+You can continue to add additional flip-flops, always inverting the output to its own input, and using the output from the previous flip-flop as the clock signal. The result is called a ripple counter, which can count to 2n - 1 where n is the number of bits (flip-flop stages) in the counter. Ripple counters suffer from unstable outputs as the overflows "ripple" from stage to stage, but they do find frequent application as dividers for clock signals, where the instantaneous count is unimportant, but the division ratio overall is (to clarify this, a 1-bit counter is exactly equivalent to a divide by two circuit; the output frequency is exactly half that of the input when fed with a regular train of clock pulses).
+
+The use of flip-flop outputs as clocks leads to timing skew between the count data bits, making this ripple technique incompatible with normal synchronous circuit design styles.
+[edit] Synchronous counter
+A 4-bit synchronous counter using JK flip-flops
+
+A simple way of implementing the logic for each bit of an ascending counter (which is what is depicted in the image to the right) is for each bit to toggle when all of the less significant bits are at a logic high state. For example, bit 1 toggles when bit 0 is logic high; bit 2 toggles when both bit 1 and bit 0 are logic high; bit 3 toggles when bit 2, bit 1 and bit 0 are all high; and so on.
+
+Synchronous counters can also be implemented with hardware finite state machines, which are more complex but allow for smoother, more stable transitions.
+
+Hardware-based counters are of this type.
+[edit] Decade counter
+A circuit diagram of decade counter using JK FlipFlops(74LS112D)
+
+A decade counter is one that counts in decimal digits, rather than binary. A decade counter may have each digit binary encoded (that is, it may count in binary-coded decimal, as the 7490 integrated circuit did) or other binary encodings (such as the bi-quinary encoding of the 7490 integrated circuit). Alternatively, it may have a "fully decoded" or one-hot output code in which each output goes high in turn (the 4017 is such a circuit). The latter type of circuit finds applications in multiplexers and demultiplexers, or wherever a scanning type of behavior is useful. Similar counters with different numbers of outputs are also common.
+
+The decade counter is also known as a mod-counter when it counts to ten (0, 1, 2, 3, 4, 5, 6, 7, 8, 9). A Mod Counter that counts to 64 stops at 63 because 0 counts as a valid digit.
+[edit] Up/down counter
+
+A counter that can change state in either direction, under the control of an up/down selector input, is known as an up/down counter. When the selector is in the up state, the counter increments its value. When the selector is in the down state, the counter decrements the count.
+[edit] Ring counter
+Main article: Ring counter
+
+A ring counter is a circular shift register which is initiated such that only one of its flip-flops is the state one while others are in their zero states.
+
+A ring counter is a Shift Register (a cascade connection of flip-flops) with the output of the last one connected to the input of the first, that is, in a ring. Typically, a pattern consisting of a single bit is circulated so the state repeats every n clock cycles if n flip-flops are used. It can be used as a cycle counter of n states.
+[edit] Johnson counter
+Main article: Ring counter
+
+A Johnson counter (or switchtail ring counter, twisted-ring counter, walking-ring counter, or Moebius counter) is a modified ring counter, where the output from the last stage is inverted and fed back as input to the first stage.[2][3][4] The register cycles through a sequence of bit-patterns, whose length is equal to twice the length of the shift register, continuing indefinitely. These counters find specialist applications, including those similar to the decade counter, digital-to-analog conversion, etc. They can be implemented easily using D- or JK-type flip-flops.
+[edit] Computer science counters
+Main article: Register machine
+
+In computability theory, a counter is considered a type of memory. A counter stores a single natural number (initially zero) and can be arbitrarily many digits long. A counter is usually considered in conjunction with a finite-state machine (FSM), which can perform the following operations on the counter:
+
+    Check whether the counter is zero
+    Increment the counter by one.
+    Decrement the counter by one (if it's already zero, this leaves it unchanged).
+
+The following machines are listed in order of power, with each one being strictly more powerful than the one below it:
+
+    Deterministic or non-deterministic FSM plus two counters
+    Non-deterministic FSM plus one stack
+    Non-deterministic FSM plus one counter
+    Deterministic FSM plus one counter
+    Deterministic or non-deterministic FSM
+
+For the first and last, it doesn't matter whether the FSM is a deterministic finite automaton or a nondeterministic finite automaton. They have equivalent power. The first two and the last one are levels of the Chomsky hierarchy.
+
+The first machine, an FSM plus two counters, is equivalent in power to a Turing machine. See the article on counter machines for a proof.
+[edit] Mechanical counters

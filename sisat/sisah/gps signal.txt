@@ -1,0 +1,120 @@
+There are many interesting signals on the SetiQuest website, but perhaps one of the most interesting
+is the GPS signal (2010-10-08-GPS-27_1575_1-8bit-XX.dat data series). This data set captures about 
+8 MHz bandwidth centered at 1575 MHz. The GPS satellites transmit two BPSK signals at 1575.42 MHz,
+ a Coarse/Acquisition (C/A) Code at 1.023 MBPS and a precision code at 10.23 MPBS. The 8 MHz bandwidth 
+is not large enough to recover the precision code, but it is large enough to capture the C/A code. This
+ post will detail the demodulation and decoding of the GPS signal to retrieve the navigation data. I’ll
+ post a link to the m-files and decoded data used at the end of the post.
+
+Typically, there are two things that make locking onto a GPS signal difficult. One, the phase and 
+position of the incoming direct-sequence spread spectrum (DSSS) code is unknown. The receiver must 
+test many shifted versions of the DSSS code until it is able to bring the receive signal into alignment 
+with its local copy. Second, the GPS satellites are traveling fast which can shift the carrier frequency 
+by up to +- 10 KHz. This requires the receiver to look at multiple carrier frequencies to find any 
+available GPS signals. The unknown phase and carrier frequency creates a 2D search plane that each 
+receiver must cycle through to find the available satellites. There are a few things about this data 
+and the analysis I’m using that makes this process much simpler.
+
+First, the task of tracking the Doppler shifted carrier is simplified by the quality of this data set.
+ The carrier is so strong that it can be tracked directly. I used the Costas loop routine from the 
+previous GOES decoding to track the carrier with no troubles. Second, the phase alignment problem
+ exists because most receivers use a correlator to despread the GPS signal. In this analysis I’m 
+using a matched filter. A matched filter does not suffer from the alignment problem of the correlator,
+ it effectively tests all alignments sequentially and continuously. The downside to using a matched 
+filter is the computational burden it places on the decoder (the baseband signal must be convolved 
+with a ~8000 tap filter). I’m doing the analysis offline so this isn’t a huge problem.
+
+I’ll forgo talking about the carrier tracking and conversion to baseband since this is identical to 
+the method used in the previous GOES post. I’ll just start up with the baseband signal. You can see
+ the baseband spectrum below.
+
+Spread GPS Signal
+
+The carrier recovery process allowed for a nice visualization of the Doppler shifting of the carrier.
+ Below you can see the recovered carrier frequency for the first GPS file (~115 seconds worth of data).
+ The carrier is initially shifted by slightly over a KHz (a relative velocity of ~200 m/s) and continues
+ to move away from the carrier at approximately 0.5 Hz/Sec. The fourth data file in this series
+ (~343 seconds into the data set) begins with a Doppler shift of approximately 1250 Hz, so the Doppler
+ shifting speeds up slightly later on.
+
+GPS Doppler Shift
+
+Following the demodulation, the next step is to use the known code for GPS satellite 27 to despread
+ the signal. As I mentioned above, the use of the matched filter does not require us to explicitly 
+search for code alignment, it’s found naturally by the filtering. However, it is worth looking at 
+the aligned code and signal to understand what is going on. Below you can see the demodulated GPS 
+chip bits compared with the ideal code. You can see the polarity is in agreement 
+(always an issue with the Costas loop and a BPSK signal) and the received signal
+ is relatively clean.
+
+ Received GPS Signal Bits Ideal Code Bits
+
+We can despread the signal by multiplying the aligned code and signal. This multiplication allows us 
+to take advantage of the processing gain provided by DSSS. The spectrum below shows the despread signal 
+on the same scale as the original spread spectrum shown above. The peaks spaced at ~1 MHz intervals off 
+the carrier are indicative of a slight phase mismatch in the despreading.
+
+Despread GPS Signal
+
+It is the auto-correlation properties of the GPS codes that allow them to be used as ranging pulses. 
+The codes have low auto-correlation values at any time shift not equal to zero. This allows the 1 ms 
+pulses to be  compressed to less than a microsecond pulse. The matched filter continually evaluates 
+the circular auto-correlation resulting in a strong peak at alignment and only small side-lobes
+ everywhere else. The figure below shows the detection of a single code. The black dot shows the 
+peak of the correlation and is used to both sample the magnitude of the bit to recover the
+ navigation message and to also time the arrival of the pulse.
+
+GPS Code Autocorrelation
+The GPS satellites not only transmit these codes for the purpose of ranging, they also modulate 
+data on top of the ranging pulses. The data rate is rather low at 50 bits/second, using 20 consecutive 
+bits to represent a single navigation message bit. The graphic below shows the output of the matched 
+filter for a period of 150 ms. The polarity of the range pulse indicates whether the navigation message
+ bit is a one or a zero. Here again, the black dots represent the timing instances used by the decoder.
+
+GPS Navigation Message Bits The bits were tracked using an early-late scheme that sampled each timing 
+instance at three points, 1 sample before, 1 sample at, and one sample after the bit mark. The sample
+ taken at the bit mark represents the value for that sampling instance. The samples taken before and 
+after are used to adjust the next sampling instance. An error term is defined as E = Sample_after – 
+Sample_before. If the error term is positive (i.e. the sampling occurred on the rising edge of the pulse),
+ the sampling period needs to be increased slightly. If the error term is negative (i.e. the sampling 
+occurred on the falling edge of the pulse), the sampling period needs to be decreased slightly.
+
+The constellation map for the data is shown below. Each ranging pulse is marked by a black x. 
+The performance of this decoder could be improved by summing the 20 consecutive bits to form the 
+navigational bit, but the performance as is was sufficient for decoding.
+
+GPS Navigation Bits Constellation MapThe full navigation message is quite long, the details of the 
+message can be found here. In short, it contains information on the satellite orbital parameters as 
+well as timing and satellite health info. Data is transmitted 300 bits at a time in packets referred
+ to as sub-frames. A full frame consists of 5 sub-frames and requires 30 seconds to receive. Certain 
+almanac and ephemeris data is spread across multiple frames, requiring 25 full frames (12.5 minutes) 
+to relay all the information. The first data file contained 19 complete sub-frames, starting with 
+sub-frame #2. I’ve included the navigation message bits as both an text document and a matlab file
+ in the attachments at the end of the post. The following graphic shows the start and end of the 19 
+sub-frames with some interesting fields outlined.GPS Sub Frames IdentifiedThe blue highlights the 
+preamble which is used to identify the start of each sub-frame. The preamble is defined as the 8 bit
+ sequence “10001011?. The decoder must also look for the one’s complement of the preamble, since the 
+satellite may invert certain parts of the message based on previous parity words. The brown represents
+ the 6 bit parity word for the final part of each sub-frame. From my understanding of the GPS data
+ format, when the final bit of a sub-frame is 1, the first 30 bits of the next sub-frame will be
+ inverted. This is the case in the sub-frames I’ve looked at so far. The red represents the sub-frame 
+ID, which you can see incrementing with each new sub-frame.
+
+The green represents a counter which is incremented every 6 seconds and reset at midnight between 
+Saturday and Sunday (it’s not quite UTC time, the count was synchronized with UTC on midnight of Jan.
+ 5 1980, but has not incorporated leap seconds). The value of the counter from the first sub-frame is
+ 84162. This would indicate that 504972 seconds have passed since the previous Saturday at midnight 
+indicating that the first packet was received on Friday at 1:15:57 p.m. (if I’ve incorporated my leap
+ seconds correctly). I’m not sure that is correct though since the meta file for this data states the
+ start time as 1:23 p.m. I’m not sure if the meta data is automatically logged from a reliable source, 
+or if it is possible there was a slight delay in recording the start time?
+
+The m-files used to demodulate the SetiQuest data along with some of the data can be downloaded here.
+ I’ve included the sampled GPS data bits along with the isolated sub-frames in the data folder.
+ The routine I used to generate the C/A code can be found here.
+
+One additional step I’d like to take with this data would be to map out the position of the GPS 27 
+satellite during this data collection and see if any other GPS satellites passed within the beam of 
+the array. It would be interesting to decode a data set which contained more than one GPS signal. I 
+think there are some python routines which will calculate the position of the satellites so I’ll try
+ to look into that.

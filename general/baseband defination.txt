@@ -1,0 +1,11 @@
+1) Describing a telecommunication system in which information is carried in digital form on a single unmultiplexed signal channel on the transmission medium. This usage pertains to a baseband network such as Ethernet and token ring local area networks.
+
+2) Same as the above, but allowing that the information could also be carried in analog form.
+
+3) Any frequency band on which information is superimposed, whether or not the band is multiplexed and information is sent on subbands. In this usage, there is sometimes the meaning that the frequency band is not shifted to some other frequency band but remains at its original place in the electromagnetic spectrum.
+
+Related glossary terms: online, IT Survival Kit: Networking refreshers, downstream, TCP/IP (Transmission Control Protocol/Internet Protocol), connection, wavelength, active network, ARPANET, frame, ELF (extremely low frequency)
+
+
+
+FPGA- field programmable gate array it is upto the consummer to customise the hardware for use

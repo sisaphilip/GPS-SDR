@@ -1,0 +1,17 @@
+0 down vote favorite
+share [g+] share [fb] share [tw]
+	
+
+I'm trying to model a simple numerically controlled oscillator as shown in the image below. The second counter has a max count value of one, hence a square wave is generated with a period of T=2*(reference clock period*IN1).
+
+I have two issues with this model
+
+1) When the counter should reset I get the folowing error:-
+
+Simulink cannot solve the algebraic loop containing 'Relational Operator' at time 2.5E-007 using the TrustRegion-based algorithm due to one of the following reasons: the model is ill-defined i.e., the system equations do not have a solution; or the nonlinear equation solver failed to converge due to numerical issues. To rule out solver convergence as the cause of this error, either a) switch to LineSearch-based algorithm using set_param('ADPLL','AlgebraicLoopSolver','LineSearch') b) reducing the fixed step size. If the error persists in spite of the above changes, then the model is likely ill-defined and requires modification.
+
+Does anyone understand/know how to resolve this issue?
+
+2) The output of the counter1 sent to the workspace is a (1x1xN) array; why is it not (1xN)? Although this may not be a major issue if the rest of the model interprets it correctly.
+
+Thanks in advance for any help

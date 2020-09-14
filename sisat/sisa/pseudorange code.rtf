@@ -1,0 +1,98 @@
+{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fnil\fcharset0 Calibri;}}
+{\*\generator Msftedit 5.41.21.2509;}\viewkind4\uc1\pard\sa200\sl276\slmult1\lang9\f0\fs22 %Program Awange-Grafarend Groebner Basis Algorithm \par
+% Department of Geodesy and GeoInformatics, University of Stuttgart, Germany-29th of August 2001\par
+% Program computes the coefficients cs2 cs1 cs0 of the quadratic equation obtained from the Groebner basis approach\par
+% All that is required from the user is to replace the four satelite coordinates and their\par
+% respective pseudo-range measurements as explained in the input section of the program\par
+% The example considered is adopted from A. Kleusberg (1994), Zeitschrift f\'fcr Vermessungswesen 119(1994)188-192 \par
+% and Grafarend and Shan (1996), ARTIFICIAL SATELLITES, Planetary Geodesy No 28 Vol 31 pp.133-147.\par
+clear all\par
+syms x1 x2 x3 x4 a0 a1 a2 a3 b0 b1 b2 b3 c0 c1 c2 c3 d0 d1 d2 d3 a03 a13 a23 b03 b13 b23 b3 c03 c13 c23 d30 d31 d32 \par
+syms e03 e13 e23\par
+format long e\par
+% Symbolic computation of the stationary receiver coordinates \{z=x3\},\{y=x2\} and \{x=x1\}\par
+cx3=(-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23-a23*b13*d30*x4+a13*b23*d30*x4+...\par
+    a23*b03*d31*x4-a03*b23*d31*x4-a13*b03*d32*x4+a03*b13*d32*x4)/(a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+...\par
+    a13*b03*c23-a03*b13*c23);\par
+cx2=(-a23*e13+a13*e23-a23*c13*x3+a13*c23*x3-a23*d31*x4+a13*d32*x4)/(a23*b13-a13*b23);\par
+cx1=(e23+b23*x2+c23*x3+d32*x4)/(-a23);\par
+% Symbolic computation of the Coefficients of the quadratic equation\par
+cf2=((-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)^2/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)^2+...\par
+   (-a23*c13*(-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+a13*c23*...\par
+   (-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)-a23*d31+a13*d32)^2/...\par
+   (a23*b13-a13*b23)^2+(b23*(-a23*c13*(-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+a13*c23*...\par
+   (-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)-a23*d31+a13*d32)/...\par
+   (a23*b13-a13*b23)+c23*(-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+d32)^2/a23^2-1);%*x4^2+\par
+\par
+cf1=(2*((-a23*e13+a13*e23-a23*c13*(-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+a13*c23*...\par
+   (-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23))/...\par
+   (a23*b13-a13*b23)-b0)*(-a23*c13*(-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+a13*c23*...\par
+   (-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)-a23*d31+a13*d32)/...\par
+   (a23*b13-a13*b23)-2*(-(e23+b23*(-a23*e13+a13*e23-a23*c13*...\par
+   (-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+a13*c23*...\par
+   (-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23))/(a23*b13-a13*b23)+c23*...\par
+   (-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23))/a23-a0)*...\par
+   (b23*(-a23*c13*(-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+a13*c23*...\par
+   (-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)-a23*d31+a13*d32)/...\par
+   (a23*b13-a13*b23)+c23*(-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+d32)/a23+2*d0+2*...\par
+   ((-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)-c0)*...\par
+   (-a23*b13*d30+a13*b23*d30+a23*b03*d31-a03*b23*d31-a13*b03*d32+a03*b13*d32)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23));%*x4+\par
+\par
+cf0=(-(e23+b23*(-a23*e13+a13*e23-a23*c13*(-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-...\par
+   a13*b03*e23+a03*b13*e23)/(a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)+...\par
+   a13*c23*(-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23))/(a23*b13-a13*b23)+c23*...\par
+   (-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23))/a23-a0)^2-d0^2+...\par
+   ((-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23)-c0)^2+...\par
+   ((-a23*e13+a13*e23-a23*c13*(-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-...\par
+   a13*b03*e23+a03*b13*e23)/(a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-...\par
+   a03*b13*c23)+a13*c23*(-a23*b13*e03+a13*b23*e03+a23*b03*e13-a03*b23*e13-a13*b03*e23+a03*b13*e23)/...\par
+   (a23*b13*c03-a13*b23*c03-a23*b03*c13+a03*b23*c13+a13*b03*c23-a03*b13*c23))/(a23*b13-a13*b23)-b0)^2;  \par
+% Input data as follows:\par
+% \{a0,b0,c0\}=\{X1,Y1,Z1\} are the coordinates of the first satellite. d0 is the pseudo-range measured to this satellie\par
+% \{a1,b1,c1\}=\{X2,Y2,Z2\} are the coordinates of the second satellite. d1 is the pseudo-range measured to this satellie\par
+% \{a2,b2,c2\}=\{X3,Y3,Z3\} are the coordinates of the third satellite. d2 is the pseudo-range measured to this satellie\par
+% \{a3,b3,c3\}=\{X4,Y4,Z4\} are the coordinates of the fourth satellite. d3 is the pseudo-range measured to this satellie\par
+\par
+a0=1.4832308660e+007;a1=-1.5799854050e+007;a2=1.984818910e+006;a3=-1.2480273190e+007;\par
+b0=-2.0466715890e+007;b1=-1.3301129170e+007;b2=-1.1867672960e+007;b3=-2.3382560530e+007;\par
+c0=-7.428634750e+006;c1=1.7133838240e+007;c2=2.3716920130e+007;c3=3.278472680e+006;\par
+d0=2.4310764064e+007;d1=2.2914600784e+007;d2=2.0628809405e+007;d3=2.3422377972e+007;\par
+f00=-a0^2-b0^2-c0^2+d0^2;f11=-a1^2-b1^2-c1^2+d1^2;f22=-a2^2-b2^2-c2^2+d2^2;f33=-a3^2-b3^2-c3^2+d3^2;\par
+a03=2*(a0-a3);b03=2*(b0-b3);c03=2*(c0-c3);d30=2*(d3-d0);e03=f00-f33;\par
+a13=2*(a1-a3);b13=2*(b1-b3);c13=2*(c1-c3);d31=2*(d3-d1);e13=f11-f33;\par
+a23=2*(a2-a3);b23=2*(b2-b3);c23=2*(c2-c3);d32=2*(d3-d2);e23=f22-f33;\par
+cs2=eval(cf2),cs1=eval(cf1),cs0=eval(cf0)\par
+% Computation of the stationary receiver range bias x4\par
+sol1=vpa(solve(cs2*x4^2+cs1*x4+cs0),13);x4=sol1\par
+% Computation of the stationary receiver coordinates \{x1=x\},\{x2=y\} and \{x3=z\}\par
+x3=eval(cx3)\par
+x2=eval(cx2)\par
+x1=eval(cx1)\par
+% Check by subtracting the measured from computed distances.\par
+check1=sqrt((a0-x1(2,1))^2+(b0-x2(2,1))^2+(c0-x3(2,1))^2)-(d0-x4(2,1))\par
+check2=sqrt((a1-x1(2,1))^2+(b1-x2(2,1))^2+(c1-x3(2,1))^2)-(d1-x4(2,1))\par
+check3=sqrt((a2-x1(2,1))^2+(b2-x2(2,1))^2+(c2-x3(2,1))^2)-(d2-x4(2,1))\par
+check4=sqrt((a3-x1(2,1))^2+(b3-x2(2,1))^2+(c3-x3(2,1))^2)-(d3-x4(2,1))\par
+}
+ 

@@ -1,0 +1,701 @@
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=ISO-8859-1">
+<title>Introduction to GPS</title>
+<link rel="shortcut icon" href="http://www.cmtinc.com/cmtinc.ico">
+</head>
+
+<body bgcolor="FFFFFF">
+
+<h2 align="center"><font color="blue">Introduction to the Global Positioning System for
+GIS and TRAVERSE</font></h2>
+
+<ol>
+  <b></b><p><b>Table of Contents</b> <b></b></p><b>
+  </b><li><b></b><a href="#chap1">What is GPS?</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap2">Trilateration - How GPS Determines a Location</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap3">How the Current Locations of GPS Satellites are Determined</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap4">Computing the Distance Between Your Position and the GPS Satellites</a>
+    <b></b></li><b>
+  </b><li><b></b><a href="#chap5">Four Satellites to Compute a 3-D Position</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap6">The GPS Error Budget</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap7">Measuring GPS Accuracy</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap8">Using Differential GPS to Increase Accuracy</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap9">Levels of GPS Accuracy</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap10">GPS and Canopy</a> <b></b></li><b>
+  </b><li><b></b><a href="#chap11">GPS for GIS</a> <b></b></li><b>
+  </b><li><b></b><a href="#glossary">Glossary of GPS Terms</a> </li>
+</ol>
+
+<hr noshade="noshade">
+
+<p><a name="chap1"></a></p>
+
+<h3 align="center">Chapter One: What is GPS?</h3>
+
+<p>The Global Positioning System (GPS) is a location system based on a constellation of
+about 24 satellites orbiting the earth at altitudes of approximately 11,000 miles. GPS was
+developed by the United States Department of Defense (DOD), for its tremendous application
+as a military locating utility. The DOD's investment in GPS is immense. Billions and
+billions of dollars have been invested in creating this technology for military uses.
+However, over the past several years, GPS has proven to be a useful tool in non-military
+mapping applications as well. </p>
+
+<p>GPS satellites are orbited high enough to avoid the problems associated with land based
+systems, yet can provide accurate positioning 24 hours a day, anywhere in the world.
+Uncorrected positions determined from GPS satellite signals produce accuracies in the
+range of 50 to 100 meters. When using a technique called differential correction, users
+can get positions accurate to within 5 meters or less. </p>
+
+<p>Today, many industries are leveraging off the DOD's massive undertaking. As GPS units
+are becoming smaller and less expensive, there are an expanding number of applications for
+GPS. In transportation applications, GPS assists pilots and drivers in pinpointing their
+locations and avoiding collisions. Farmers can use GPS to guide equipment and control
+accurate distribution of fertilizers and other chemicals. Recreationally, GPS is used for
+providing accurate locations and as a navigation tool for hikers, hunters and boaters. </p>
+
+<p>Many would argue that GPS has found its greatest utility in the field of Geographic
+Information Systems (GIS). With some consideration for error, GPS can provide any point on
+earth with a unique address (its precise location). A GIS is basically a descriptive
+database of the earth (or a specific part of the earth). GPS tells you that you are at
+point X,Y,Z while GIS tells you that X,Y,Z is an oak tree, or a spot in a stream with a pH
+level of 5.4. GPS tells us the "where". GIS tells us the "what".
+GPS/GIS is reshaping the way we locate, organize, analyze and map our resources. </p>
+
+<p><a href="#top">Return to the Table of Contents</a> </p>
+
+<hr noshade="noshade">
+
+<p><a name="chap2"></a></p>
+
+<h3 align="center">Chapter Two: Trilateration - How GPS Determines a Location</h3>
+
+<p>In a nutshell, GPS is based on satellite ranging - calculating the distances between
+the receiver and the position of 3 or more satellites (4 or more if elevation is desired)
+and then applying some good old mathematics. Assuming the positions of the satellites are
+known, the location of the receiver can be calculated by determining the distance from
+each of the satellites to the receiver. GPS takes these 3 or more known references and
+measured distances and "triangulates" an additional position. </p>
+
+<p>As an example, assume that I have asked you to find me at a stationary position based
+upon a few clues which I am willing to give you. First, I tell you that I am exactly 10
+miles away from your house. You would know I am somewhere on the perimeter of a sphere
+that has an origin as your house and a radius of 10 miles. With this information alone,
+you would have a difficult time to find me since there are an infinite number of locations
+on the perimeter of that sphere. </p>
+
+<p>Second, I tell you that I am also exactly 12 miles away from the ABC Grocery Store. Now
+you can define a second sphere with its origin at the store and a radius of 12 miles. You
+know that I am located somewhere in the space where the perimeters of these two spheres
+intersect - but there are still many possibilities to define my location. </p>
+
+<p>Adding additional spheres will further reduce the number of possible locations. In
+fact, a third origin and distance (I tell you am 8 miles away from the City Clock) narrows
+my position down to just 2 points. By adding one more sphere, you can pinpoint my exact
+location. Actually, the 4th sphere may not be necessary. One of the possibilities may not
+make sense, and therefore can be eliminated. </p>
+
+<p>For example, if you know I am above sea level, you can reject a point that has negative
+elevation. Mathematics and computers allow us to determine the correct point with only 3
+satellites. </p>
+
+<p align="center"><img src="Introduction%20to%20GPS_files/trilat2.gif" alt="" height="262" width="323"> </p>
+
+<p>Based on this example, you can see that you need to know the following information in
+order to compute your position: </p>
+
+<blockquote>
+  <p>A) What is the precise location of three or more known points (GPS satellites)? <br>
+  B) What is the distance between the known points and the position of the GPS receiver? </p>
+</blockquote>
+<a href="#top">
+
+<p>Return to the Table of Contents</p></a> 
+
+<hr noshade="noshade">
+
+<p><a name="chap3"></a></p>
+
+<h3 align="center">Chapter Three: How the Current Locations of GPS Satellites are
+Determined</h3>
+
+<p>GPS satellites are orbiting the Earth at an altitude of 11,000 miles. The DOD can
+predict the paths of the satellites vs. time with great accuracy. Furthermore, the
+satellites can be periodically adjusted by huge land-based radar systems. Therefore, the
+orbits, and thus the locations of the satellites, are known in advance. Today's GPS
+receivers store this orbit information for all of the GPS satellites in what is known as
+an <b>almanac</b>. Think of the almanac as a "bus schedule" advising you of
+where each satellite will be at a particular time. Each GPS satellite continually
+broadcasts the almanac. Your GPS receiver will automatically collect this information and
+store it for future reference. </p>
+
+<p>The Department of Defense constantly monitors the orbit of the satellites looking for
+deviations from predicted values. Any deviations (caused by natural atmospheric phenomenon
+such as gravity), are known as <b>ephemeris</b><i> </i>errors. When ephemeris errors are
+determined to exist for a satellite, the errors are sent back up to that satellite, which
+in turn broadcasts the errors as part of the standard message, supplying this information
+to the GPS receivers. </p>
+
+<p>By using the information from the almanac in conjuction with the ephemeris error data,
+the position of a GPS satellite can be very precisely determined for a given time. </p>
+
+<p><br>
+<a href="#top">Return to the Table of Contents</a> </p>
+
+<hr noshade="noshade">
+
+<p><a name="chap4"></a></p>
+
+<h3 align="center">Chapter Four: Computing the Distance Between Your Position and the GPS
+Satellites</h3>
+
+<p>GPS determines distance between a GPS satellite and a GPS receiver by measuring the
+amount of time it takes a radio signal (the GPS signal) to travel from the satellite to
+the receiver. Radio waves travel at the speed of light, which is about 186,000 miles per
+second. So, if the amount of time it takes for the signal to travel from the satellite to
+the receiver is known, the distance from the satellite to the receiver (distance = speed x
+time) can be determined. If the exact time when the signal was transmitted and the exact
+time when it was received are known, the signal's travel time can be determined. </p>
+
+<p>In order to do this, the satellites and the receivers use very accurate clocks which
+are synchronized so that they generate the same code at exactly the same time. The code
+received from the satellite can be compared with the code generated by the receiver. By
+comparing the codes, the time difference between when the satellite generated the code and
+when the receiver generated the code can be determined. This interval is the travel time
+of the code. Multiplying this travel time, in seconds, by 186,000 miles per second gives
+the distance from the receiver position to the satellite in miles. </p>
+
+<p><br>
+<a href="#top">Return to the Table of Contents</a> </p>
+
+<hr noshade="noshade">
+
+<p><a name="chap5"></a></p>
+
+<h3 align="center">Chapter Five: Four (4) Satellites to give a 3D position</h3>
+
+<p>In the previous example, you saw that it took only 3 measurements to
+"triangulate" a 3D position. However, GPS needs a 4th satellite to provide a 3D
+position. Why?? </p>
+
+<p>Three measurements can be used to locate a point, assuming the GPS receiver and
+satellite clocks are precisely and continually synchronized, thereby allowing the distance
+calculations to be accurately determined. Unfortunately, it is impossible to synchronize
+these two clocks, since the clocks in GPS receivers are not as accurate as the very
+precise and expensive atomic clocks in the satellites. The GPS signals travel from the
+satellite to the receiver very fast, so if the two clocks are off by only a small
+fraction, the determined position data may be considerably distorted. </p>
+
+<p>The atomic clocks aboard the satellites maintain their time to a very high degree of
+accuracy. However, there will always be a slight variation in clock rates from satellite
+to satellite. Close monitoring of the clock of each satellite from the ground permits the
+control station to insert a message in the signal of each satellite which precisely
+describes the drift rate of that satellite's clock. The insertion of the drift rate
+effectively synchronizes all of the GPS satellite clocks. </p>
+
+<p>The same procedure cannot be applied to the clock in a GPS receiver. Therefore, a
+fourth variable (in addition to x, y and z), time, must be determined in order to
+calculate a precise location. Mathematically, to solve for four unknowns (x,y,z, and t),
+there must be four equations. In determining GPS positions, the four equations are
+represented by signals from four different satellites. </p>
+<a href="#top">
+
+<p>Return to the Table of Contents</p></a> 
+
+<hr noshade="noshade">
+
+<p><a name="chap6"></a></p>
+
+<h3 align="center">Chapter Six: The GPS Error Budget</h3>
+
+<p>The GPS system has been designed to be as nearly accurate as possible. However, there
+are still errors. Added together, these errors can cause a deviation of <b>+/- 50 -100</b>
+meters from the actual GPS receiver position. There are several sources for these errors,
+the most significant of which are discussed below: </p>
+
+<h4>Atmospheric Conditions</h4>
+
+<p>The ionosphere and troposphere both refract the GPS signals. This causes the speed of
+the GPS signal in the ionosphere and troposphere to be different from the speed of the GPS
+signal in space. Therefore, the distance calculated from "Signal Speed x Time"
+will be different for the portion of the GPS signal path that passes through the
+ionosphere and troposphere and for the portion that passes through space. </p>
+
+<h4>Ephemeris Errors/Clock Drift/Measurement Noise</h4>
+
+<p>As mentioned earlier, GPS signals contain information about ephemeris (orbital
+position) errors, and about the rate of clock drift for the broadcasting satellite. The
+data concerning ephemeris errors may not exactly model the true satellite motion or the
+exact rate of clock drift. Distortion of the signal by measurement noise can further
+increase positional error. The disparity in ephemeris data can introduce 1-5 meters of
+positional error, clock drift disparity can introduce 0-1.5 meters of positional error and
+measurement noise can introduce 0-10 meters of positional error. </p>
+
+<h4>Selective Availability</h4>
+
+<p>Ephemeris errors should not be confused with Selective Availability (SA), which is the
+intentional alteration of the time and epherimis signal by the Department of Defense. SA
+can introduce 0-70 meters of positional error. Fortunately, positional errors caused by SA
+can be removed by differential correction. </p>
+
+<h4>Multipath</h4>
+
+<p>A GPS signal bouncing off a reflective surface prior to reaching the GPS receiver
+antenna is referred to as multipath. Because it is difficult to completely correct
+multipath error, even in high precision GPS units, multipath error is a serious concern to
+the GPS user. </p>
+
+<p>The chart below lists the most common sources of error in GPS positions. This chart is
+commonly known as the GPS Error Budget: </p>
+
+<h4>GPS Error Budget</h4>
+
+<pre>Source			Uncorrected Error Level
+Ionosphere		0-30 meters
+Troposphere		0-30 meters
+Measurement Noise	0-10 meters
+Ephemeris Data		1-5 meters
+Clock Drift		0-1.5 meters
+Multipath		0-1 meter
+Selective Availability	0-70 meters
+</pre>
+
+<p><br>
+<a href="#top">Return to the Table of Contents</a> </p>
+
+<hr noshade="noshade">
+
+<p><a name="chap7"></a></p>
+
+<h3 align="center">Chapter Seven: Measuring GPS Accuracy</h3>
+
+<p>As discussed above, there are several external sources which introduce errors into a
+GPS position. While the errors discussed above always affect accuracy, another major
+factor in determining positional accuracy is the alignment, or geometry, of the group of
+satellites (constellation) from which signals are being received. The geometry of the
+constellation is evaluated for several factors, all of which fall into the category of
+Dilution Of Precision, or DOP. </p>
+
+<h4>DOP</h4>
+
+<p>DOP is an indicator of the quality of the geometry of the satellite constellation. Your
+computed position can vary depending on which satellites you use for the measurement.
+Different satellite geometries can magnify or lessen the errors in the error budget
+described above. A greater angle between the satellites lowers the DOP, and provides a
+better measurement. A higher DOP indicates poor satellite geometry, and an inferior
+measurement cofiguration. </p>
+
+<p align="center"><img src="Introduction%20to%20GPS_files/gooddops.gif" height="266" width="356"><br>
+<img src="Introduction%20to%20GPS_files/baddops.gif" height="266" width="356"><br>
+</p>
+
+<p>Some GPS receivers can analyze the positions of the satellites available, based upon
+the almanac, and choose those satellites with the best geometry in order to make the DOP
+as low as possible. Another important GPS receiver feature is to be able to ignore or
+eliminate GPS readings with DOP values that exceed user-defined limits. Other GPS
+receivers may have the ability to use all of the satellites in view, thus minimizing the
+DOP as much as possible. </p>
+<a href="#top">
+
+<p>Return to the Table of Contents</p></a> 
+
+<hr noshade="noshade">
+
+<p><a name="chap8"></a></p>
+
+<h3 align="center">Chapter Eight: Using Differential GPS to Increase Accuracy </h3>
+
+<p>As powerful as GPS is, +/-50 - 100 meters of uncertainty is not acceptable in many
+applications. How can we obtain higher accuracies? </p>
+
+<p>A technique called <b>differential correction </b>is necessary to get accuracies within
+1 -5 meters, or even better, with advanced equipment. Differential correction requires a
+second GPS receiver, a<i> base station, </i>collecting data at a stationary position on a
+precisely known point (typically it is a surveyed benchmark). Because the physical
+location of the base station is known, a correction factor can be computed by comparing
+the known location with the GPS location determined by using the satellites. </p>
+
+<p>The differential correction process takes this correction factor and applies it to the
+GPS data collected by a GPS receiver in the field. Differential correction eliminates most
+of the errors listed in the GPS Error Budget discussed earlier. After differential
+correction, the GPS Error Budget changes as follows: </p>
+
+<h4>GPS Error Budget</h4>
+
+<pre>Source		Uncorrected	With Differential
+Ionosphere	0-30 meters	Mostly Removed
+Troposphere	0-30 meters	All Removed
+Signal Noise	0-10 meters	All Removed
+Ephemeris Data	1-5 meters	All Removed
+Clock Drift	0-1.5 meters	All Removed
+Multipath	0-1 meters	Not Removed
+SA		0-70 meters	All Removed
+</pre>
+
+<p>By eliminating many of the above errors, differential correction allows GPS positions
+to be computed at a much higher level of accuracy. </p>
+<a href="#top">
+
+<p>Return to the Table of Contents</p></a> 
+
+<hr noshade="noshade">
+
+<p><a name="chap9"></a></p>
+
+<h3 align="center">Chapter Nine: Levels of GPS Accuracy</h3>
+
+<p>There are three types of GPS receivers which are available in today's marketplace. Each
+of the three types offers different levels of accuracy, and has different requirements to
+obtain those accuracies. To this point, the discussion in this book has focused on Coarse
+Acquisition (C/A code) GPS receivers. The two remaining types of GPS receiver are Carrier
+Phase receivers and Dual Frequency receivers. </p>
+
+<h4>C/A Code receivers</h4>
+
+<p>C/A Code receivers typically provide 1-5 meter GPS position accuracy with differential
+correction. C/A Code GPS receivers provide a sufficient degree of accuracy to make them
+useful in most GIS applications. </p>
+
+<p>C/A Code receivers can provide 1-5 meter GPS position accuracy with an occupation time
+of 1 second. Longer occupation times (up to 3 minutes) will provide GPS position
+accuracies consistently within 1-3 meters. Recent advances in GPS receiver design will now
+allow a C/A Code receiver to provide sub-meter accuracy, down to 30 cm. </p>
+
+<h4>Carrier Phase receivers</h4>
+
+<p>Carrier Phase receivers typically provide 10-30 cm GPS position accuracy with
+differential correction. Carrier Phase receivers provide the higher level of accuracy
+demanded by certain GIS applications. </p>
+
+<p>Carrier Phase receivers measure the distance from the receiver to the satellites by
+counting the number of waves that carry the C/A Code signal. This method of determining
+position is much more accurate; however, it does require a substatially higher occupation
+time to attain 10-30 cm accuracy. Initializing a Carrier Phase GPS job on a known point
+requires an occupation time of about 5 minutes. Initializing a Carrier Phase GPS job on an
+unknown point requires an occupation time of about 30-40 minutes. </p>
+
+<p>Additional requirements, such as maintaining the same satellite constellation
+throughout the job, performance under canopy and the need to be very close to a base
+station, limit the applicability of Carrier Phase GPS receivers to many GIS applications. </p>
+
+<h4>Dual-Frequency receivers</h4>
+
+<p>Dual-Frequency receivers are capable of providing sub-centimeter GPS position accuracy
+with differential correction. Dual-Frequency receivers provide "survey grade"
+accuracies not often required for GIS applications. </p>
+
+<p>Dual-Frequency receivers receive signals from the satellites on two frequencies
+simultaneously. Receiving GPS signals on two frequencies simultaneously allows the
+receiver to determine very precise positions. </p>
+<a href="#top">
+
+<p>Return to the Table of Contents</p></a> 
+
+<hr noshade="noshade">
+
+<p><a name="chap10"></a></p>
+
+<h3 align="center">Chapter Ten: GPS and Canopy</h3>
+
+<p>GPS receivers require a line of sight to the satellites in order to obtain a signal
+representative of the true distance from the satellite to the receiver. Therefore, any
+object in the path of the signal has the potential to interfere with the reception of that
+signal. Objects which can block a GPS signal include tree canopy, buildings and terrain
+features. </p>
+
+<p>Further, reflective surfaces can cause the GPS signals to bounce before arriving at a
+receiver, thus causing an error in the distance calculation. This problem, known as
+multipath, can be caused by a variety of materials including water, glass and metal. The
+water contained in the leaves of vegatation can produce multipath error. In some
+instances, operating under heavy, wet forest canopy can degrade the ability of a GPS
+receiver to track satellites. </p>
+
+<p>There are several data collection techniques which can mitigate the effects of signal
+blockage by tree canopy or other objects. For example, many GPS receivers can be
+instructed to track only the highest satellites in the sky, as opposed to those satellites
+which provide the best DOP. Increasing the elevation of the GPS antenna can also
+dramatically increase the ability of the receiver to track satellites. </p>
+
+<p>Unfortunately, there will be locations where GPS signals simply are not available due
+to obstruction. In these cases, there are additional techniques which can help to solve
+the problem. Some GPS receivers have the ability to collect an offset point, which
+involves recording a GPS position at a location where GPS signals are available while also
+recording the distance, bearing and slope from the GPS antenna to the position of interest
+where the GPS signals are not available. This technique is useful for avoiding a dense
+timber stand or building. </p>
+
+<p>Further, a traditional traverse program can be used to manually enter a series of
+bearings and ranges to generate positions until satellite signals can again be received.
+This position data can then be used to augment position data collected with the GPS
+receiver. </p>
+<a href="#top">
+
+<p>Return to the Table of Contents</p></a> 
+
+<hr noshade="noshade">
+
+<p><a name="chap11"></a></p>
+
+<h3 align="center">Chapter Eleven: GPS for GIS</h3>
+
+<p>Up to this point, the discussion has focused on describing how GPS determines a
+location on the surface of the Earth. Now the discussion can shift to the process of
+describing what is at the location. The "what" is the object or objects which
+will be mapped. These objects are referred to as "Features", and are used to
+build a GIS. It is the power of GPS to precisely locate these Features which adds so much
+to the utility of the GIS system. On the other hand, without Feature data, a coordinate
+location is of little value. </p>
+
+<h4>Feature Types</h4>
+
+<p>There are three types of Feature which can be mapped: Points, Lines and Areas. A Point
+Feature is a single GPS coordinate position which is identified with a specific Object. A
+Line Feature is a collection of GPS positions which are identified with the same Object
+and linked together to form a line. An Area Feature is very similar to a Line Feature,
+except that the ends of the line are tied to each other to form a closed area. </p>
+
+<h4>Describing Features</h4>
+
+<p>As stated above, a Feature is the object which will be mapped by the GPS system. The
+ability to describe a Feature in terms of a multi-layered database is essential for
+successful integration with any GIS system. For example, it is possible to map the
+location of each house on a city block and simply label each coordinate position as a
+house. However, the addition of information such as color, size, cost, occupants, etc.
+will provide the ability to sort and classify the houses by these catagories. </p>
+
+<p>These catagories of descriptions for a Feature are know as Attributes. Attributes can
+be thought of as questions which are asked about the Feature. Using the example above, the
+Attributes of the Feature "house" would be "color", "size",
+"cost" and "occupants". </p>
+
+<p>Logically, each question asked by the Attributes must have an answer. The answers to
+the questions posed by the Attributes are called Values. In the example above, an
+appropriate Value (answer) for the Attribute (question) "color" may be
+"blue". </p>
+
+<p>The following table illustrates the relationship between Features, Attributes and
+Values: </p>
+
+<pre>Feature	Attribute	Value
+House	Color		Blue
+	Size		3 BDR
+	Cost		$118K
+	Occupants	5
+</pre>
+
+<p>By collecting the same type of data for each house which is mapped, a database is
+created. Tying this database to position information is the core philosophy underlying any
+GIS system. </p>
+
+<h4>Feature Lists</h4>
+
+<p>The field data entry process can be streamlined by the use of a Feature List. The
+Feature List is a database which contains a listing of the Features which will be mapped,
+as well as the associated Attributes for each Feature. In addition, the Feature List
+contains a selection of appropriate Values for each Attribute. The Feature List can be
+created on the CMT hand-held GPS data collector, or on a PC. Below is an example of a
+Feature List as it appears in <a href="http://www.cmtinc.com/software/index.htm#pcgps">PC-GPS</a>: </p>
+
+<p>When a Feature List is used in the field, the first step is to select the Feature to be
+mapped. Once a Feature is selected, the Attributes for that Feature are automatically
+listed. A Value for each Attribute can then be selected from the displayed list of
+predetermined Values. </p>
+
+<p>The use of a Feature List streamlines the data entry process and also ensures
+consistent data entry among different users in the same organization. </p>
+
+<h4>Exporting to a GIS System</h4>
+
+<p>The final step in incorporating GPS data with a GIS system is to export the GPS and
+Feature data into the GIS system. During this process, a GIS "layer" is created
+for each Feature in the GPS job. For example, the process of exporting a GPS job which
+contains data for House, Road and Lot Features would create a House layer, a Road layer
+and a Lot layer in the GIS system. These layers can then be incorporated with existing GIS
+data. </p>
+
+<p>Once the GPS job has been exported, the full power of the GIS system can be used to
+classify and evaluate the data. </p>
+<a href="#top">
+
+<p>Return to the Table of Contents</p></a> 
+
+<hr noshade="noshade">
+
+<p><a name="glossary"></a></p>
+
+<h3 align="center">Glossary of GPS Terms</h3>
+<b>
+
+<p align="center">- A -</p></b> 
+
+<p><b>Almanac -</b> the Almanac is a file which contains positional information for all of
+the GPS satellites. The Almanac is used by the GPS receiver to determine which satellites
+to track, and can also be used for mission planning. </p>
+
+<p><b>Attribute -</b> a characteristic which describes a Feature. Attributes can be
+thought of as questions which are asked about the Feature. </p>
+
+<p align="center"><br>
+<b>- C -</b> <br>
+</p>
+
+<p><b>C/A Code -</b> the standard (Course/Acquisition) GPS code used by most GIS level GPS
+receivers. Also known as the civilian code. </p>
+
+<p><b>Carrier -</b> the signal that carries the C/A Code from the satellite to the GPS
+receiver. </p>
+
+<p><b>Carrier-aided Tracking -</b> a signal processing technique that uses the GPS carrier
+signal to achieve an exact lock on the pseudo random code generated by the GPS satellite.
+Carrier-aided tracking is more accurate than standard C/A Code tracking. </p>
+
+<p><b>Channel -</b> a channel of a GPS receiver consists of the circuitry necessary to
+track the signal from a single GPS satellite. </p>
+
+<p><b>Cycle Slip -</b> a loss of continuity in the measured carrier beat phase which
+results from a temporary loss of lock on a GPS satellite. </p>
+
+<p align="center"><br>
+<b>- D -</b> <br>
+</p>
+<b>
+
+</b><p><b>Differential Correction - </b>the technique of comparing GPS data collected in the
+field to GPS data collected at a known point. By collecting GPS data at a known point, a
+correction factor can be determined and applied to the field GPS data. </p>
+
+<p><b>Dilution of Precision</b> <b>(DOP) -</b> an indicator of satellite geometry for a
+unique constellation of satellites used to determine a position. Positions tagged with a
+higher DOP value generally constitute poorer measurement results than those tagged with
+lower DOP. </p>
+
+<p><b>Dynamic Positioning -</b> the process of collecting GPS data while the GPS antenna
+is in motion. Often associated with Line or Area Features. </p>
+
+<p align="center"><br>
+<b>- E -</b> <br>
+</p>
+
+<p><b>Ephemeris -</b> the predicted changes in the orbit of a satellite that are
+transmitted to the GPS receiver from the individual satellites. </p>
+
+<p><b>Ephemeris Errors -</b> errors which originate in the ephemeris data transmitted by a
+GPS satellite. Ephemeris errors are removed by differential correction. </p>
+
+<p align="center"><br>
+<b>- F -</b> <br>
+</p>
+
+<p><b>Feature -</b> the object which is being mapped for use in a GIS system. Features may
+be points, lines or areas. </p>
+
+<p><b>Featuring -</b> the process of collecting GPS and GIS information simultaneously. </p>
+
+<p align="center"><br>
+<b>- G -</b> <br>
+</p>
+
+<p><b>Geographic Information System (GIS) - </b>a mapping system which combines positional
+data with descriptive information to form a layered map. </p>
+
+<p><b>Global Positioning System (GPS)</b> - a system for providing precise location which
+is based on data transmitted from a constellation of 24 satellites </p>
+
+<p align="center"><br>
+<b>- L -</b> <br>
+</p>
+
+<p><b>L-band -</b> the group of radio frequencies which carry the GPS data from the
+satellites to the GPS receivers. </p>
+
+<p align="center"><br>
+<b>- M -</b> <br>
+</p>
+
+<p><b>Multipath - </b>the interference to a signal that has reached the receiver antenna
+by multiple paths; usually caused by the signal being bounced or reflected. Signals from
+satellites low on the horizon will have high multipath error. Receivers that can be
+configured to "mask out" signals from such satellites can help minimize
+multi-path. </p>
+
+<p align="center"><br>
+<b>- P -</b> <br>
+</p>
+
+<p><b>Pseudorange -</b> an uncorrected measurement of the distance between a GPS satellite
+and a GPS receiver determined by comparing a code transmitted by the satellite to a code
+generated by the receiver. </p>
+
+<p align="center"><br>
+<b>- R -</b> <br>
+</p>
+
+<p><b>Residual -</b> a quality indicator for a GPS position that is determined during the
+differential correction process. Indicates uncorrectable error. High residuals are not
+desirable. </p>
+
+<p align="center"><br>
+<b>- S -</b> <br>
+</p>
+
+<p><b>Satellite Constellation</b> <b>- </b>the group of GPS satellites from which data is
+used to determine a position. </p>
+
+<p><b>Static Positioning -</b> the process of averaging GPS positions taken successively
+over a period of time with a stationary antenna to increase accuracy. </p>
+
+<p align="center"><br>
+<b>- V -</b> <br>
+</p>
+
+<p><b>Value -</b> descriptive information about a Feature. Values can be thought of as the
+answers to the questions posed by Attributes. </p>
+<a href="#top">
+
+<p>Return to the Table of Contents</p></a> 
+
+<hr noshade="noshade">
+<font size="2">
+
+<p align="center">First U.S. Publication in June, 1996 by:<br>
+<b>Corvallis Microtechnology, Inc.<br>
+413 S.W. Jefferson Avenue<br>
+Corvallis, OR 97333 </b></p>
+
+<p align="center">All rights reserved. No portion of this document may be reproduced or
+distributed in any form without the express written consent of Corvallis Microtechnology,
+Inc. <br>
+<br>
+<br>
+<br>
+</p>
+</font><div align="center"><center>
+
+<table border="0" cellpadding="4" cellspacing="0" width="366">
+  <tbody><tr>
+    <td colspan="4" bgcolor="#334093" width="358"><p align="center"><font color="#FFFFFF" size="2" face="Arial, Helvetica"><strong>CMTINC.COM</strong><br>
+    413 SW Jefferson Ave.<br>
+    Corvallis, OR 97333 USA</font></p></td>
+  </tr>
+  <tr>
+    <td colspan="2" align="left" width="166"><p align="left"><font size="2" face="Arial, Helvetica">Tel: (541)752-5456</font></p></td>
+    <td colspan="2" align="left" width="184"><p align="right"><font size="2" face="Arial, Helvetica">Fax: (541)752-4117</font></p></td>
+  </tr>
+  <tr>
+    <td align="center" width="91"></td>
+    <td colspan="2" align="center" width="210"></td>
+    <td align="center" width="92"></td>
+  </tr>
+  <tr>
+    <td align="center" width="91"></td>
+    <td colspan="2" align="center" width="210"><p align="center"><font color="#000000" size="2" face="Arial, Helvetica"><a href="mailto:support@cmtinc.com"><strong>support@cmtinc.com</strong></a></font></p></td>
+    <td align="center" width="92"></td>
+  </tr>
+  <tr>
+    <td colspan="4" align="left" width="358"><h6 align="center"><strong><font face="Arial, Helvetica">?Corvallis Microtechnology, Inc. 2000 All Rights Reserved</font></strong></h6>
+    </td>
+  </tr>
+</tbody></table>
+</center></div>
+
+
+</body></html>

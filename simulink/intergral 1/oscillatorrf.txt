@@ -1,0 +1,88 @@
+% A matlab version of the (too) simple model of:
+% Tziperman, E., L. Stone, M. A. Cane and H. Jarosh 1994: El Ni?o
+% Chaos: Overlapping of resonances between the seasonal cycle and
+% the Pacific Ocean-Atmosphere oscillator. Science, 264, 72-74.
+% download 
+% written by Eli Galanti.
+
+clear all;
+clf;
+%initialize h
+DT=10.;
+i_start=400/DT;
+i_end=100000/DT;
+h(1:i_start-1)=1.e-4;
+h(i_start:i_end)=0.0;
+
+%parameter for the hyperbolic tangent function
+kappa=2.0;
+a_plus=1.;
+a_minus_over_a_plus=1.;
+b_plus=2.0;
+b_minus_over_b_plus=-0.2;
+a_minus=a_plus*a_minus_over_a_plus;
+b_minus=b_plus*b_minus_over_b_plus;
+h_plus = ( b_plus /(kappa*a_plus )) * (a_plus -1.);
+h_minus= ( b_minus/(kappa*a_minus)) * (a_minus-1.);
+%parameters for the delayed equation
+month=30;
+omega=2.0*pi/(12.0*month);
+b=1./180;
+c=1./120;
+seasonality=1.3;
+L=1.0;
+Ck=1./(2.3*month);
+Cr=1./(3*2.3*month);
+seasonality_phase_months=3.;
+seasonality_phase=2.*pi*seasonality_phase_months/12.;
+
+%parameters concerning delay times
+tau1=L/(2*Ck);
+%tau1=35;
+N1=round(tau1/DT);
+tau2=L/Ck+L/(2*Cr);
+%tau2=170;
+N2=round(tau2/DT);
+
+%solve the equation
+for ii=i_start:i_end
+
+  %calculatate A[h(ii-N1)]
+  hh=h(ii-N1);
+  if (hh>h_plus)
+    AmN1 = b_plus+(b_plus/a_plus)*( tanh((kappa*a_plus/b_plus)*(hh-h_plus))-1.);
+  elseif (hh<=h_plus&hh>h_minus)
+    AmN1 = kappa*hh;
+  else
+    AmN1 = b_minus+(b_minus/a_minus)*( ...
+	tanh((kappa*a_minus/b_minus)*(hh-h_minus))-1.);
+  end
+    
+  %calculatate A[h(ii-N2)]
+  hh=h(ii-N2);
+  if (hh>h_plus)
+    AmN2 = b_plus+(b_plus/a_plus)*( tanh((kappa*a_plus/b_plus)*(hh-h_plus))-1.);
+  elseif (hh<=h_plus&hh>h_minus)
+    AmN2 = kappa*hh;
+  else
+    AmN2 = b_minus+(b_minus/a_minus)*(tanh((kappa*a_minus/b_minus)*(hh-h_minus))-1.);
+  end
+  
+  t_now=DT*ii;
+  %propagate h in time
+  h(ii)=h(ii-1)+DT*(b*AmN1-c*AmN2+b*seasonality*cos(omega*DT*ii+seasonality_phase)); 
+
+end
+
+time=[DT/360:DT/360:DT*i_end/360];
+
+figure
+is=2000;ie=8000;
+plot(time(is:ie),h(is:ie))
+figure
+%comet(h(i_start+1:30/DT:i_end),h(i_start-360/DT+1:30/DT:i_end-360/DT))
+hold off
+for ii=i_start+7000:360/DT:i_end
+  plot(h(ii-360/DT),h(ii))
+  hold on
+end
